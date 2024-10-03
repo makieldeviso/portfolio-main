@@ -5,7 +5,12 @@ import App from "./components/App";
 const routerArray = [
   {
     path: '/',
-    element: <App/>
+    element: <App/>,
+    children: [
+      {
+        
+      }
+    ]
   }
 ]
 
