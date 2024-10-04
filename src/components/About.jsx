@@ -1,11 +1,11 @@
 import { Picture, PicIcon, TechIcon } from "./Assets"
 
-const AboutBanner = function () {
+const About = function () {
   return (
-    <div className='banner about'>
+    <div className='banner about' id='About'>
       <div className="banner-cont">
         <div className='about-text'>
-          <h2 className='greeting'>Fred Mark</h2>
+          <h2 className='greeting'>FRED MARK</h2>
           <p>
           Front-end web developer with the objective of creating responsive, accessible and efficient websites and web applications. Focuses in building interactive and dynamic apps using React.
           </p>
@@ -14,6 +14,8 @@ const AboutBanner = function () {
         <div className='about-picture'>
           <Picture assetName={'profile-picture'} altText={'Fred Mark profile picture'}/>
         </div>
+
+        <TechBanner/>
       </div>
     </div>
   )
@@ -44,12 +46,11 @@ const TechBanner = function () {
   return (
     <div className="banner tech">
       <div className="banner-cont">
-        <h2>Technologies</h2>
         <TechList/>
       </div>
     </div>
   )
 }
 
-export default AboutBanner
+export default About
 export {TechBanner}

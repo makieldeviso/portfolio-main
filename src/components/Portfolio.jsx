@@ -33,6 +33,11 @@ const memoryCard = new Project(
 
 const Portfolio = function () {
 
+  const handleOpenLink = function (event) {
+    const linkAddress = event.target.value;
+    window.open(linkAddress);  
+  }
+
   const Projects = projectsArr.map((project) => {
     return (
       <div key={project.title} className='project'>
@@ -41,21 +46,24 @@ const Portfolio = function () {
         <p className='description'>{project.description}</p>
 
         <div className='project-btns'>
-          <button>View Code</button>
-          <button>Visit Site</button>
+          <button onClick={handleOpenLink} value={project.codeLink}>View Code</button>
+          <button onClick={handleOpenLink} value={project.liveLink}>Visit Site</button>
         </div>
       </div>
     )
   })
   
   return (
-    <div className='banner portfolio'>
+    <div className='banner portfolio' id='Portfolio'>
       <div className='banner-cont'>
-        <h2>Portfolio</h2>
+        <h2 className='banner-header'>PORTFOLIO</h2>
 
         <div className='projects-cont'>
           {Projects}
         </div>
+
+        <button className='more-projects-btn'>See more</button>
+
       </div>
     </div>
   )

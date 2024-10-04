@@ -22,27 +22,28 @@ const github = new ContactInfo(
 
 const Contact = function () {
   return (
-    <div className="banner contact">
+    <div className="banner contact" id='Contact'>
       <div className="banner-cont">
-        <h2>Contact</h2>
+        <p className="contact-msg">Get in touch</p> 
 
         <div className="email contact">
-          <p>Get in touch</p> 
           <PicIcon iconName={'mail'}/>
-          <p>fredmark.baldeviso@gmail.com</p>
+          <p className="email-address">fredmark.baldeviso@gmail.com</p>
         </div>
 
         <div className="contact-links">
           <a href={linkedin.contactInfo}
             target="_blank"
             aria-label="Linkedin"
+            title="Linkedin"
           >
             <LocalIcon iconName={'Linkedin'}/>
           </a>
 
           <a href={github.contactInfo}
             target="_blank"
-            aria-label="Linkedin"
+            aria-label="Github"
+            title='Github'
           >
             <LocalIcon iconName={'Github'}/>
           </a>

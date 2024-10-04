@@ -1,12 +1,11 @@
-import AboutBanner, {TechBanner} from "./About"
+import About from "./About"
 import Portfolio from "./Portfolio"
 import Contact from "./Contact"
 
 const Main = function () {
   return (
     <main>
-      <AboutBanner/>
-      <TechBanner/>
+      <About/>
       <Portfolio/>
       <Contact/>
 
