@@ -1,35 +1,4 @@
-import shoppingCartPreview from '../assets/projects-preview/shopping-cart.png';
-import memoryCardPreview from '../assets/projects-preview/memory-card.png';
-
-const projectsArr = [];
-
-class Project {
-  constructor(title, previewImg, description, codeLink, liveLink) {
-    this.title = title;
-    this.previewImg = previewImg;
-    this.description = description;
-    this.codeLink = codeLink;
-    this.liveLink = liveLink;
-    projectsArr.push(this)
-  }
-}
-
-const shoppingCart = new Project(
-  'Shopping Cart',
-  shoppingCartPreview,
-  'A shopping cart/ store website project titled A-TIER physical games store. This portfolio project shows a shopping website with a homepage banner, a shopping window and cart functionality feature. Created with React emphasizing client-side routing with React Router.',
-  'https://github.com/makieldeviso/shopping-cart',
-  'https://a-tier.netlify.app/'
-)
-
-const memoryCard = new Project(
-  'Memory Card Game',
-  memoryCardPreview,
-  'A memory card game with a pokemon theme. This project emphasizes state management while fetching and utilizing data from external API.',
-  'https://github.com/makieldeviso/memory-card-game',
-  'https://memory-card-game-4cx.pages.dev/'
-)
-
+import projectsArr from "../data/Projects";
 
 const Portfolio = function () {
 

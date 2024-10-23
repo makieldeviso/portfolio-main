@@ -267,7 +267,7 @@ header.scrolled {
 .projects-cont {
   gap: var(--margin);
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
 }
 
 .project {
@@ -277,6 +277,8 @@ header.scrolled {
   border: 1px solid var(--comp-color-1);
   border-radius: 0 10px 0 10px;
   background-color: var(--darkest-color);
+ 
+  overflow: hidden;
 
   display: grid;
   grid-template-columns: max-content 1fr;
