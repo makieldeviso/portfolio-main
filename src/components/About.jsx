@@ -5,9 +5,10 @@ const About = function () {
     <div className='banner about' id='About'>
       <div className="banner-cont">
         <div className='about-text'>
-          <h2 className='greeting'>FRED MARK</h2>
+          <h2 className='owner-name'>FRED MARK</h2>
+          <h3 className='owner-title'>Front-end Web Developer</h3>
           <p>
-          Front-end web developer with the objective of creating responsive, accessible and efficient websites and web applications. Focuses in building interactive and dynamic apps using React.
+          Creates responsive, accessible and efficient websites and web applications. Focuses in building interactive and dynamic apps using React.
           </p>
         </div>
 

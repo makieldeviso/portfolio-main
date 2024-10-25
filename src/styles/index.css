@@ -173,17 +173,28 @@ header.scrolled {
   justify-self: end;
 }
 
-.banner-cont h2.greeting {
+.banner-cont h2.owner-name {
   font-size: 5rem;
+  line-height: 5rem;
   color: var(--base-color);
+  text-decoration: underline;
+  text-underline-offset: var(--padding);
+  text-decoration-thickness: 1px;
+}
+
+.banner-cont h3.owner-title {
+  font-size: 2rem;
+  line-height: 2rem;
+  margin-top: 8px;
+  color: var(--lighter-base-color);
 }
 
 .about-text p {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   line-height: 1.5rem;
   color: var(--lightest-color);
   width: 80%;
-  margin-top: var(--margin);
+  margin-top: calc(var(--margin) * 3);
   word-spacing: 0.3rem;
 }
 
@@ -193,10 +204,10 @@ header.scrolled {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url('../assets/bg-3.png');
+  /* background-image: url('../assets/bg-3.png');
   background-position: center;
   background-size: contain;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
   padding: 50px;
 }
 
@@ -204,7 +215,7 @@ header.scrolled {
   object-fit: cover;
   width: 320px;
   height: 320px;
-  clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+  /* clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%); */
   background-color: var(--comp-color-1);
   filter:grayscale(1);
   transition: 200ms;
@@ -265,29 +276,34 @@ header.scrolled {
 }
 
 .projects-cont {
-  gap: var(--margin);
+  gap: calc(var(--margin) * 2);
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
 }
 
 .project {
   padding: calc(var(--padding) * 2);
-  border: 3px solid black;
   gap: var(--margin);
-  border: 1px solid var(--comp-color-1);
-  border-radius: 0 10px 0 10px;
+  border: 1px solid var(--lighter-base-color);
   background-color: var(--darkest-color);
  
   overflow: hidden;
 
   display: grid;
-  grid-template-columns: max-content 1fr;
-  grid-template-rows: max-content;
+  grid-template-columns: 1fr;
+  grid-template-rows: max-content max-content 1fr max-content;
   align-items: center;
   grid-template-areas: 
-    "title title"
-    "preview desc"
-    "preview buttons";
+    "preview"
+    "title"
+    "desc"
+    "buttons";
+
+  transition: 200ms;
+}
+
+.project:hover {
+  border: 1px solid var(--comp-color-1);
 }
 
 .project .title {
@@ -298,19 +314,50 @@ header.scrolled {
 
 .project .preview {
   grid-area: preview;
-  width: 300px;
-  height: auto;
-  object-fit: cover;
-  object-position: center;
+  border: 1px solid transparent;
+  width: 100%;
+  height: 316px;
   align-self: start;
+  transition: 300ms ease-in-out;
+
+  display: grid;
+  grid-template-columns: 1fr 0fr 0fr;
+  grid-template-rows: 100%;
+  transition: 300ms;
+}
+
+.project .preview.page-1 {
+  grid-template-columns: 1fr 0fr 0fr;
+}
+.project .preview.page-2 {
+  grid-template-columns: 0fr 1fr 0fr;
+}
+.project .preview.page-3 {
+  grid-template-columns: 0fr 0fr 1fr;
+}
+
+.project .preview-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+
+}
+
+.project .preview:hover {
+  cursor: pointer;
 }
 
 .project .description {
   grid-area: desc;
   align-self: start;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  width: 100%;
 }
 
 .project .project-btns {
+  width: max-content;
   grid-area: buttons;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -320,22 +367,32 @@ header.scrolled {
 }
 
 .project-btns button {
-  width: 80%;
-  min-width: max-content;
+  width: max-content;
   height: max-content;
-  padding: calc(var(--padding) * 0.5);
+  padding: var(--padding);
   font-size: 1rem;
   font-family: var(--title-font);
   background-color: transparent;
-  border: 1px solid var(--base-color);
-  color: var(--base-color);
+  border: 1px solid transparent;
+  color: var(--lighter-base-color);
   transition: 200ms;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.project-btns button .button-icon {
+  width: 32px;
+  height: 32px;
+}
+
+.project-btns button .button-icon path{
+  fill: var(--lighter-base-color);
 }
 
 .project-btns button:hover {
   cursor: pointer;
-  border: 1px solid var(--comp-color-1);
-  color: var(--comp-color-1);
 }
 
 .more-projects-btn {

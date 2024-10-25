@@ -1,26 +1,76 @@
-import projectsArr from "../data/Projects";
+import { useState } from "react";
+import PropTypes from 'prop-types'
 
-const Portfolio = function () {
+import projectsArr from "../data/Projects";
+import PlainSvgIcon from "./PlainSvg";
+
+const Project = function ({projectData}) {
+
+  const [previewPage, setPreviewPage] = useState(1);
 
   const handleOpenLink = function (event) {
     const linkAddress = event.target.value;
     window.open(linkAddress);  
   }
 
-  const Projects = projectsArr.map((project) => {
-    return (
-      <div key={project.title} className='project'>
-        <p className='title'>{project.title}</p>
-        <img src={project.previewImg} alt={`${project.title} preview`} className='preview'/>
-        <p className='description'>{project.description}</p>
+  const handleChangePreview = function () {
+    if (previewPage >= projectData.previewImg.length ) {
+      setPreviewPage(p => p = 1);
+    }
+
+    else {
+      setPreviewPage(p => p + 1);
+    }
+  }
+
+  return (
+    <div className='project'>
+        
+        <div className={`preview page-${previewPage}`} onClick={handleChangePreview}>
+          {
+            projectData.previewImg.map((img) => {
+              return (
+                <img key={crypto.randomUUID()}
+                  src={img} 
+                  alt={`${projectData.title} preview`} 
+                  className='preview-img'
+                />
+              )
+            })
+          }
+        </div>
+        <p className='title'>{projectData.title}</p>
+        <p className='description'>{projectData.description}</p>
 
         <div className='project-btns'>
-          <button onClick={handleOpenLink} value={project.codeLink}>View Code</button>
-          <button onClick={handleOpenLink} value={project.liveLink}>Visit Site</button>
+          <button onClick={handleOpenLink} value={projectData.codeLink}>
+            <PlainSvgIcon iconName={'github'} assignClass={'button-icon'}/>
+          </button>
+          <button onClick={handleOpenLink} value={projectData.liveLink}>
+            <PlainSvgIcon iconName={'open-link'} assignClass={'button-icon'}/>
+          </button>
         </div>
       </div>
-    )
+  )
+}
+
+Project.propTypes = {
+  projectData: PropTypes.shape({
+    title: PropTypes.string,
+    previewImg: PropTypes.array,
+    description: PropTypes.string,
+    codeLink: PropTypes.string,
+    liveLink: PropTypes.string
   })
+
+}
+
+
+const Portfolio = function () {
+
+  const Projects = projectsArr.map((project) => {
+    return (<Project key={project.id} projectData={project}/>)
+  })  
   
   return (
     <div className='banner portfolio' id='Portfolio'>
@@ -30,8 +80,6 @@ const Portfolio = function () {
         <div className='projects-cont'>
           {Projects}
         </div>
-
-        <button className='more-projects-btn'>See more</button>
 
       </div>
     </div>
