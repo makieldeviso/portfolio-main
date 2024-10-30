@@ -1,0 +1,36 @@
+.sprite-cont {
+  width: 100%;
+  aspect-ratio: 1 / 0.625;
+  overflow: hidden;
+  position: relative;
+}
+
+.sprite-img {
+  width: 200%;
+  height: 200%;
+  object-fit: fill;
+  top: 0%;
+  left: 0%;
+  position: absolute;
+  transition: 300ms;
+}
+
+.sprite-img.page-1 {
+  top: 0%;
+  left: 0%;
+}
+
+.sprite-img.page-2 {
+  top: 0%;
+  left: -100%;
+}
+
+.sprite-img.page-3 {
+  top: -100%;
+  left: -100%;
+}
+
+.sprite-img.page-4 {
+  top: -100%;
+  left: 0%;
+}

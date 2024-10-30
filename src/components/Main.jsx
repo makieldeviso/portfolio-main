@@ -1,12 +1,12 @@
 import About from "./About"
-import Portfolio from "./Portfolio"
+import Projects from "./Projects"
 import Contact from "./Contact"
 
 const Main = function () {
   return (
     <main>
       <About/>
-      <Portfolio/>
+      <Projects/>
       <Contact/>
 
     </main>

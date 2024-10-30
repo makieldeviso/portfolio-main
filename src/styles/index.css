@@ -315,33 +315,8 @@ header.scrolled {
 .project .preview {
   grid-area: preview;
   border: 1px solid transparent;
-  width: 100%;
-  height: 316px;
   align-self: start;
-  transition: 300ms ease-in-out;
-
-  display: grid;
-  grid-template-columns: 1fr 0fr 0fr;
-  grid-template-rows: 100%;
-  transition: 300ms;
-}
-
-.project .preview.page-1 {
-  grid-template-columns: 1fr 0fr 0fr;
-}
-.project .preview.page-2 {
-  grid-template-columns: 0fr 1fr 0fr;
-}
-.project .preview.page-3 {
-  grid-template-columns: 0fr 0fr 1fr;
-}
-
-.project .preview-img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top center;
-
 }
 
 .project .preview:hover {
@@ -361,9 +336,9 @@ header.scrolled {
   grid-area: buttons;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  justify-content: start;
+  justify-content: center;
   align-self: end;
-  align-content: end;
+  justify-self: end;
 }
 
 .project-btns button {

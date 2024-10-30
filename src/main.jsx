@@ -4,6 +4,7 @@ import { RouterProvider } from 'react-router-dom'
 
 import { browserRouter } from './Router'
 import './styles/index.css'
+import './styles/projects-sprite.css'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
