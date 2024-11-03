@@ -1,5 +1,4 @@
-// Components
-import { PicIcon, LocalIcon } from "./Assets"
+import PlainSvgIcon from "./PlainSvg";
 
 let Contacts = [];
 class ContactInfo {
@@ -22,12 +21,12 @@ const github = new ContactInfo(
 
 const Contact = function () {
   return (
-    <div className="banner contact" id='Contact'>
+    <section className="banner contact" id='Contact'>
+      <h3 className="banner-header">CONTACT</h3>
       <div className="banner-cont">
-        <p className="contact-msg">Get in touch</p> 
-
+        
         <div className="email contact">
-          <PicIcon iconName={'mail'}/>
+          <PlainSvgIcon iconName={'mail'}/>
           <p className="email-address">fredmark.baldeviso@gmail.com</p>
         </div>
 
@@ -37,7 +36,7 @@ const Contact = function () {
             aria-label="Linkedin"
             title="Linkedin"
           >
-            <LocalIcon iconName={'Linkedin'}/>
+            <PlainSvgIcon iconName={'linkedin'}/>
           </a>
 
           <a href={github.contactInfo}
@@ -45,13 +44,13 @@ const Contact = function () {
             aria-label="Github"
             title='Github'
           >
-            <LocalIcon iconName={'Github'}/>
+            <PlainSvgIcon iconName={'github'}/>
           </a>
         </div>
 
       </div>
     
-    </div>
+    </section>
   )
 }
 

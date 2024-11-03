@@ -1,17 +1,40 @@
-import { useState } from "react";
+import { createContext, useCallback, useContext, useEffect, useRef, useState } from "react";
 import PropTypes from 'prop-types'
 
 import projectsArr from "../data/ProjectsData";
 import PlainSvgIcon from "./PlainSvg";
 
-const Project = function ({projectData}) {
-  const [previewPage, setPreviewPage] = useState(1);
-
+const ProjectLinkButtons = function ({codeLink, liveLink}) {
   const handleOpenLink = function (event) {
     const linkAddress = event.target.value;
     window.open(linkAddress);  
   }
 
+  return (
+    <div className='project-btns'>
+      {codeLink && 
+        <button onClick={handleOpenLink} value={codeLink} data-action={'code'} title='View Code'>
+          <PlainSvgIcon iconName={'github'} assignClass={'button-icon'}/>
+        </button>
+        }
+      {liveLink && 
+        <button onClick={handleOpenLink} value={liveLink} data-action={'site'} title='Live View'>
+          <PlainSvgIcon iconName={'openLink'} assignClass={'button-icon'}/>
+        </button>
+      }
+    </div>
+  )
+}
+
+ProjectLinkButtons.propTypes = {
+  codeLink: PropTypes.string,
+  liveLink: PropTypes.string
+}
+
+const Project = function ({projectData}) {
+  const [previewPage, setPreviewPage] = useState(1);
+  const projectRef = useRef(null);
+ 
   const handleChangePreview = function () {
     if (previewPage >= 4 ) {
       setPreviewPage(p => p = 1);
@@ -22,8 +45,30 @@ const Project = function ({projectData}) {
     }
   }
 
+  useEffect(() => {
+    const handleShowProject = function () {
+      const screenHeight = window.innerHeight;
+      const {y, height} = projectRef.current.getBoundingClientRect();
+
+      const projectEntry = Math.floor(y + (height * 0.25));
+      
+      if (projectEntry < screenHeight) {
+        projectRef.current.classList.add('shown');
+      }
+    }
+
+    window.addEventListener('load', handleShowProject);
+    window.addEventListener('scroll', handleShowProject);
+
+    return () => {
+      window.removeEventListener('load', handleShowProject);
+      window.removeEventListener('scroll', handleShowProject);
+    }
+  },[]);
+
   return (
-    <div className='project'>
+    <li className={`project`} ref={projectRef}>
+      <div className="project-cont">
         <div className={`preview sprite-cont`} onClick={handleChangePreview}>
           <img 
             src={projectData.previewImg} 
@@ -31,18 +76,15 @@ const Project = function ({projectData}) {
             className={`preview-img sprite-img page-${previewPage}`}
           />
         </div>
-        <p className='title'>{projectData.title}</p>
+        <h3 className='title'>{projectData.title}</h3>
         <p className='description'>{projectData.description}</p>
 
-        <div className='project-btns'>
-          <button onClick={handleOpenLink} value={projectData.codeLink}>
-            <PlainSvgIcon iconName={'github'} assignClass={'button-icon'}/>
-          </button>
-          <button onClick={handleOpenLink} value={projectData.liveLink}>
-            <PlainSvgIcon iconName={'open-link'} assignClass={'button-icon'}/>
-          </button>
-        </div>
+        <ProjectLinkButtons 
+          codeLink= {projectData.codeLink}
+          liveLink= {projectData.liveLink}
+        />
       </div>
+    </li>
   )
 }
 
@@ -54,27 +96,24 @@ Project.propTypes = {
     codeLink: PropTypes.string,
     liveLink: PropTypes.string
   })
-
 }
 
-
 const Projects = function () {
-
   const Projects = projectsArr.map((project) => {
     return (<Project key={project.id} projectData={project}/>)
   })  
-  
+ 
   return (
-    <div className='banner portfolio' id='Portfolio'>
+    <section className='banner projects' id='Projects'>
+      <h2 className='banner-header'>PROJECTS</h2>
       <div className='banner-cont'>
-        <h2 className='banner-header'>PORTFOLIO</h2>
-
         <div className='projects-cont'>
-          {Projects}
+          <ul className='projects-list featured'>
+            {Projects}
+          </ul>
         </div>
-
       </div>
-    </div>
+    </section>
   )
 }
 

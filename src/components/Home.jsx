@@ -1,19 +1,20 @@
-import { Picture, PicIcon, TechIcon } from "./Assets"
+import {fredData} from '../data/AboutData'
+import { TechIcon } from "./Assets";
 
-const About = function () {
+const Home = function () {
   return (
-    <div className='banner about' id='About'>
+    <div className='banner about' id='Home'>
       <div className="banner-cont">
         <div className='about-text'>
-          <h2 className='owner-name'>FRED MARK</h2>
-          <h3 className='owner-title'>Front-end Web Developer</h3>
-          <p>
-          Creates responsive, accessible and efficient websites and web applications. Focuses in building interactive and dynamic apps using React.
-          </p>
+          <h2 className='owner-name'>
+            {fredData.firstName.toUpperCase()}
+          </h2>
+          <h3 className='owner-title'>{fredData.title}</h3>
+          <p>{fredData.greetings}</p>
         </div>
 
         <div className='about-picture'>
-          <Picture assetName={'profile-picture'} altText={'Fred Mark profile picture'}/>
+          <img src={fredData.profilePicture[0]} alt="Fred Mark Baldeviso profile" />
         </div>
 
         <TechBanner/>
@@ -53,5 +54,5 @@ const TechBanner = function () {
   )
 }
 
-export default About
+export default Home
 export {TechBanner}

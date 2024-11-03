@@ -1,8 +1,18 @@
+.project-cont {
+  perspective: 1000px;
+}
+
 .sprite-cont {
   width: 100%;
   aspect-ratio: 1 / 0.625;
   overflow: hidden;
   position: relative;
+}
+
+.sprite-cont:hover {
+  cursor: url('../assets/rhombus.png') 12 12, pointer;
+  transform-origin: center center;
+  transform: rotateX(10deg);
 }
 
 .sprite-img {

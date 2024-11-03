@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 
 const Header = function () {
 
@@ -15,11 +15,13 @@ const Header = function () {
       }
     }
 
-    window.addEventListener('scroll', scrollStyling)
+    window.addEventListener('scroll', scrollStyling);
+    window.addEventListener('load', scrollStyling);
 
 
     return () => {
-      window.removeEventListener('scroll', scrollStyling )
+      window.removeEventListener('scroll', scrollStyling);
+      window.removeEventListener('load', scrollStyling);
     }
   },[])
 
@@ -29,13 +31,19 @@ const Header = function () {
       <div className='header-cont'>
         <div className="page-logo">
           <div className='page-icon'></div>
-          <p className="page-name">FM</p>
+          <div className="page-name">
+            <span>F</span>
+            <span className='rest'>RED </span>
+
+            <span >M</span>
+            <span className='rest'>ARK</span>
+          </div>
         </div>
 
         <nav className={'header-links'}>
           <ul>
             <li><a href="#About">ABOUT</a></li>
-            <li><a href="#Portfolio">PORTFOLIO</a></li>
+            <li><a href="#Projects">PROJECTS</a></li>
             <li><a href="#Contact">CONTACT</a></li>
           </ul>
         </nav>
