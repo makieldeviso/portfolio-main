@@ -5,7 +5,7 @@ import App from './components/App';
 
 import './styles/index.css';
 import './styles/projects-sprite.css';
-
+import './styles/about.css';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

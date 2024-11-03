@@ -88,6 +88,10 @@ header.scrolled {
   gap: var(--margin);
 }
 
+.page-logo {
+  cursor: pointer;
+}
+
 .page-icon{
   background-color: var(--lightest-color);
   width: 35px;
@@ -172,14 +176,14 @@ header.scrolled .page-name span.rest {
 
 /* Main Common (end) */
 
-/* About banner (start)*/
-.banner.about {
+/* Home banner (start)*/
+.banner.home {
   margin: auto;
   position: relative;
   padding-top: var(--banner-margin);
 }
 
-.about.banner .banner-cont {
+.home.banner .banner-cont {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: start;
@@ -193,7 +197,7 @@ header.scrolled .page-name span.rest {
     "tech .";
 }
 
-.about-text {
+.home-text {
   grid-area: profile-text;
   padding: var(--padding);
   justify-self: end;
@@ -216,7 +220,7 @@ header.scrolled .page-name span.rest {
   color: var(--lighter-base-color);
 }
 
-.about-text p {
+.home-text p {
   font-size: 1.2rem;
   line-height: 1.5rem;
   color: var(--lightest-color);
@@ -225,7 +229,7 @@ header.scrolled .page-name span.rest {
   word-spacing: 0.3rem;
 }
 
-.about-picture {
+.home-picture {
   grid-area: profile-img;
   width: 100%;
   display: flex;
@@ -238,7 +242,7 @@ header.scrolled .page-name span.rest {
   /* padding: 50px; */
 }
 
-.about-picture img {
+.home-picture img {
   object-fit: cover;
   width: 320px;
   height: 320px;
@@ -248,7 +252,7 @@ header.scrolled .page-name span.rest {
   transition: 200ms;
 }
 
-.about-picture img:hover{
+.home-picture img:hover{
   cursor: url('../assets/rhombus.png'), pointer;
   filter: grayscale(0);
   transform: rotateY(0deg) scale(1.2);
@@ -292,7 +296,7 @@ header.scrolled .page-name span.rest {
   color: black;
 }
 
-/* About banner (end)*/
+/* Home banner (end)*/
 
 /* Portfolio banner (start) */
 .banner.projects {

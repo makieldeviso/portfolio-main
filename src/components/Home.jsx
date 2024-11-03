@@ -3,9 +3,9 @@ import { TechIcon } from "./Assets";
 
 const Home = function () {
   return (
-    <div className='banner about' id='Home'>
+    <div className='banner home' id='Home'>
       <div className="banner-cont">
-        <div className='about-text'>
+        <div className='home-text'>
           <h2 className='owner-name'>
             {fredData.firstName.toUpperCase()}
           </h2>
@@ -13,7 +13,7 @@ const Home = function () {
           <p>{fredData.greetings}</p>
         </div>
 
-        <div className='about-picture'>
+        <div className='home-picture'>
           <img src={fredData.profilePicture[0]} alt="Fred Mark Baldeviso profile" />
         </div>
 

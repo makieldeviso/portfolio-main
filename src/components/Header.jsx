@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react"
+import { useNavigate } from "react-router-dom";
 
 const Header = function () {
-
   const headerRef = useRef(null);
 
   useEffect(() => {
@@ -25,11 +25,14 @@ const Header = function () {
     }
   },[])
 
+  const scrollToHome = function () {
+    window.location.href= '#Home';
+  }
 
   return (
     <header ref={headerRef}>
       <div className='header-cont'>
-        <div className="page-logo">
+        <div className="page-logo" onClick={scrollToHome}>
           <div className='page-icon'></div>
           <div className="page-name">
             <span>F</span>
