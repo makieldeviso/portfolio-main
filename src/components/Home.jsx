@@ -27,9 +27,10 @@ const TechBanner = function () {
   const userTech = ['HTML', 'CSS', 'JavaScript', 'React'];
 
   const TechList = function () {
-    const TechItems = userTech.map((techName) => {
+    const TechItems = userTech.map((techName, index) => {
+      const delay = `${500 + (100 * (index + 1))}ms`;
       return (
-        <li key={techName}>
+        <li key={techName} style={{animationDelay: delay}}>
           <div className='tech-icon-cont'>
             <TechIcon iconName={techName}/>
             <p>{techName}</p>

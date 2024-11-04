@@ -231,6 +231,7 @@ header.scrolled .page-name span.rest {
 
 .home-picture {
   grid-area: profile-img;
+  filter: opacity(0);
   width: 100%;
   display: flex;
   justify-content: center;
@@ -260,6 +261,13 @@ header.scrolled .page-name span.rest {
   border: 2px solid var(--comp-color-1);
 }
 
+.banner-cont h2.owner-name, 
+.banner-cont h3.owner-title,
+.home-text p, 
+.home-picture {
+  filter: opacity(0);
+  animation: popIn 500ms 500ms ease-in-out forwards;
+}
 
 .banner.tech {
   grid-area: tech;
@@ -280,6 +288,23 @@ header.scrolled .page-name span.rest {
   display: flex;
   gap: var(--margin);
 }
+
+@keyframes popIn {
+  from {
+    transform: translateY(50px);
+    filter: opacity(0);
+  }
+  to {
+    transform: translateY(0px);
+    filter: opacity(1);
+  }
+}
+
+.tech-list li {
+  transform: translateY(50px);
+  filter: opacity(0);
+  animation: popIn 300ms ease-in-out forwards;
+} 
 
 .tech-icon-cont {
   display: flex;
@@ -414,6 +439,10 @@ header.scrolled .page-name span.rest {
   background-color: var(--base-color);
 }
 
+.project-cont:hover .preview {
+  filter: grayscale(0);
+}
+
 .project .title {
   grid-area: title;
   font-size: 1.5rem;
@@ -432,6 +461,7 @@ header.scrolled .page-name span.rest {
   align-self: start;
   width: 100%;
   transition: 300ms;
+  filter: grayscale(1);
 }
 
 .project .description {
@@ -461,8 +491,8 @@ header.scrolled .page-name span.rest {
   font-family: var(--title-font);
   background-color: var(--lighter-base-color);
   border: 1px solid transparent;
-  padding: var(--padding);
-  padding-top: calc(var(--padding) * 2);
+  padding: 4px;
+  padding-top: 12px;
 
   display: flex;
   justify-content: center;
@@ -471,8 +501,8 @@ header.scrolled .page-name span.rest {
 }
 
 .project-btns button .button-icon {
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
 }
 
 .project-btns button .button-icon path {

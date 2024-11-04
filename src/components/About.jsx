@@ -2,9 +2,6 @@ import PropTypes from 'prop-types'
 import { useEffect, useRef, useState } from "react"
 import { fredData } from "../data/AboutData"
 
-
-
-
 const AboutPanels = function () {
   const aboutContent = fredData.objectives;
   const aboutKeys = Object.keys(aboutContent);
@@ -29,13 +26,9 @@ const AboutPanels = function () {
 
     return (
       <div ref={panelRef} className={`about-panel`} data-id={data}>
-        <button 
-          className='panel-button'
-          onClick={handleOpenPanel}
-          value={data}
-        >
+        <h3 className='panel-heading'onClick={handleOpenPanel}>
           {aboutContent[data].title}
-        </button>
+        </h3>
         <p className='panel-text'>{aboutContent[data].description}</p>   
       </div>
     )
@@ -57,15 +50,34 @@ AboutPanels.propTypes = {
   setTextContent: PropTypes.func,
 }
 
+const Background = function () {
+  const textKeys = Object.keys(fredData.background);
+  const textContents = textKeys.map(key => {
+    return (
+      <p key={key}>
+        {fredData.background[key]}
+      </p>
+    )
+  })
+
+  return (
+    <div className={'about-background'}>
+      <h3>Background</h3>
+      <article>
+        {textContents}
+      </article>
+    </div>
+  )
+}
+
 const About = function () {
 
   return (
     <section className='banner about' id='About'>
       <h2 className="banner-header">ABOUT</h2>
       <div className="banner-cont">
-      
         <AboutPanels/>
-
+        <Background/>
       </div>
     </section>
   )
