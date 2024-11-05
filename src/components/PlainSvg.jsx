@@ -1,22 +1,22 @@
 import PropTypes from 'prop-types'
 
-// PlainSvgIcon.propTypes = {
-//   iconName: PropTypes.string,
-//   assignClass: PropTypes.string,
-// }
-
 const PlainSvgIcon = function ({iconName, assignClass}) {
+
+  const attributes = {
+    className: assignClass,
+    style: {pointerEvents: 'none'}
+  }
 
   const svgIcons = {
     copyright: 
-      (<svg className={assignClass} xmlns='http://www.w3.org/2000/svg' viewBox='-6 0 32 32'>
+      (<svg {...attributes} xmlns='http://www.w3.org/2000/svg' viewBox='-6 0 32 32'>
         <g>
           <path d='M9.76 21.68c-1.52 0-2.96-.6-4.04-1.68-2.24-2.24-2.24-5.84 0-8.04a5.7 5.7 0 0 1 4.04-1.68c1.52 0 2.96.6 4.04 1.68.32.32.32.84 0 1.2-.32.32-.84.32-1.2 0A3.96 3.96 0 0 0 9.76 12c-1.08 0-2.08.4-2.84 1.16a4.03 4.03 0 0 0 0 5.68C7.68 19.6 8.68 20 9.76 20s2.08-.4 2.84-1.16c.32-.32.84-.32 1.2 0 .32.32.32.84 0 1.2a5.72 5.72 0 0 1-4.04 1.64m0 4.08C4.36 25.76 0 21.36 0 16s4.36-9.76 9.76-9.76c5.36 0 9.76 4.36 9.76 9.76s-4.4 9.76-9.76 9.76m0-17.84c-4.44 0-8.08 3.6-8.08 8.08s3.6 8.08 8.08 8.08c4.44 0 8.08-3.6 8.08-8.08s-3.6-8.08-8.08-8.08'></path>
         </g>
       </svg>),
 
     github: (
-      <svg className={assignClass} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'>
+      <svg {...attributes} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'>
         <g>
           <g fill='none' fillRule='evenodd' stroke='none' strokeWidth='1'>
             <g fill='#000' transform='translate(-140 -7559)'>
@@ -31,7 +31,7 @@ const PlainSvgIcon = function ({iconName, assignClass}) {
 
     linkedin: (
       <svg
-        className={assignClass}
+        {...attributes}
         xmlns='http://www.w3.org/2000/svg'
         xmlSpace='preserve'
         width='200'
@@ -46,7 +46,7 @@ const PlainSvgIcon = function ({iconName, assignClass}) {
 
     mail: (
       <svg
-        className={assignClass}
+        {...attributes}
         xmlns='http://www.w3.org/2000/svg'
         xmlSpace='preserve'
         fill='#000'
@@ -60,7 +60,7 @@ const PlainSvgIcon = function ({iconName, assignClass}) {
     ),
 
     openLink: (
-      <svg className={assignClass} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'>
+      <svg {...attributes} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'>
         <g>
           <g fill='none' fillRule='evenodd' stroke='none' strokeWidth='1'>
             <g fill='#000' transform='translate(85.333 64)'>
@@ -69,7 +69,19 @@ const PlainSvgIcon = function ({iconName, assignClass}) {
           </g>
         </g>
       </svg>
-    )
+    ),
+
+    more: (
+      <svg {...attributes} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'>
+        <path d='m16.003 18.626 7.081-7.081L25 13.46l-8.997 8.998-9.003-9 1.917-1.916z'></path>
+      </svg>
+    ),
+
+    less: (
+      <svg {...attributes} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'>
+        <path d='m15.997 13.374-7.081 7.081L7 18.54l8.997-8.998 9.003 9-1.916 1.916z'></path>
+      </svg>
+    ),
 
   }
 
@@ -78,10 +90,11 @@ const PlainSvgIcon = function ({iconName, assignClass}) {
       {svgIcons[iconName]}
     </>
   )
-
 }
 
-
-
+PlainSvgIcon.propTypes = {
+  iconName: PropTypes.string,
+  assignClass: PropTypes.string
+}
 
 export default PlainSvgIcon;

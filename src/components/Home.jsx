@@ -10,11 +10,11 @@ const Home = function () {
             {fredData.firstName.toUpperCase()}
           </h2>
           <h3 className='owner-title'>{fredData.title}</h3>
-          <p>{fredData.greetings}</p>
+          <p>{fredData.tagline}</p>
         </div>
 
         <div className='home-picture'>
-          <img src={fredData.profilePicture[0]} alt="Fred Mark Baldeviso profile" />
+          <img src={fredData.profilePictures[0]} alt="Fred Mark Baldeviso profile" />
         </div>
 
         <TechBanner/>
@@ -47,8 +47,8 @@ const TechBanner = function () {
   }
 
   return (
-    <div className="banner tech">
-      <div className="banner-cont">
+    <div className="home-tech">
+      <div className="tech-cont">
         <TechList/>
       </div>
     </div>
@@ -56,4 +56,3 @@ const TechBanner = function () {
 }
 
 export default Home
-export {TechBanner}

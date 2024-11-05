@@ -269,13 +269,13 @@ header.scrolled .page-name span.rest {
   animation: popIn 500ms 500ms ease-in-out forwards;
 }
 
-.banner.tech {
+.home-tech {
   grid-area: tech;
   justify-self: start;
   margin: 0;
 }
 
-.banner.tech .banner-cont {
+.home-tech .tech-cont {
   width: 100%;
   grid-template-columns: 1fr;
   justify-items: start;
@@ -316,9 +316,13 @@ header.scrolled .page-name span.rest {
 }
 
 .tech-icon-cont img {
-  width: 45px;
-  height: 45px;
+  width: 30px;
+  height: 30px;
   color: black;
+}
+
+.tech-icon-cont p {
+  font-size: 0.8rem;
 }
 
 /* Home banner (end)*/
