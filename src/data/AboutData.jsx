@@ -1,5 +1,4 @@
 import profilePicture1 from '../assets/profile-pictures/profile-1.jpg';
-import profilePicture2 from '../assets/profile-pictures/profile-2.jpg';
 
 class ProfileData {
   constructor(firstName, lastName) {
@@ -9,7 +8,7 @@ class ProfileData {
 }
 
 const fredData = new ProfileData('Fred Mark', 'Baldeviso');
-fredData.profilePictures = [profilePicture1, profilePicture2];
+fredData.profilePictures = [profilePicture1];
 fredData.title = 'Front-end Web Developer';
 fredData.techStack = {
   frontEnd: ['HTML', 'CSS', 'JavaScript', 'React']

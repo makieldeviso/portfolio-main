@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types'
 import { useEffect, useRef, useState } from "react"
 import { fredData } from "../data/AboutData";
-import PlainSvgIcon from './PlainSvg';
 
 const Introduction = function () {
   return (
