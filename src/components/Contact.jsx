@@ -1,37 +1,45 @@
+import { useRef } from "react";
+
+import { fredData } from "../data/ProfileData";
 import PlainSvgIcon from "./PlainSvg";
 
-let Contacts = [];
-class ContactInfo {
-  constructor(contactName, contactInfo) {
-    this.contactName = contactName;
-    this.contactInfo = contactInfo;
-    Contacts.push(this);
-  }
-}
-
-const linkedin = new ContactInfo(
-  'Linkedin', 
-  'https://www.linkedin.com/in/fred-mark-baldeviso-433138243',
-)
-
-const github = new ContactInfo(
-  'Github',
-  'https://github.com/makieldeviso'
-)
-
 const Contact = function () {
+  const instructRef = useRef(null);
+
+  const handleCopyEmailAdd = async function (e) {
+    const emailAdd = e.target.textContent;
+
+    try {
+      await navigator.clipboard.writeText(emailAdd);
+      instructRef.current.textContent = 'Copied';
+      setTimeout(() => {
+        instructRef.current.textContent = 'Click to copy';
+      }, 1000);
+
+    } catch (error){
+      throw new Error(error.message)
+    }
+  }
+
   return (
     <section className="banner contact" id='Contact'>
       <h3 className="banner-header">CONTACT</h3>
       <div className="banner-cont">
         
         <div className="email contact">
+          <p className='email-message'>Get in touch</p>
+          <p ref={instructRef} className="click-instruction">Click to copy</p>
           <PlainSvgIcon iconName={'mail'}/>
-          <p className="email-address">fredmark.baldeviso@gmail.com</p>
+          <p 
+            className="email-address"
+            onClick={handleCopyEmailAdd}
+          >
+            {fredData.contacts.email.contactInfo}
+          </p>
         </div>
 
         <div className="contact-links">
-          <a href={linkedin.contactInfo}
+          <a href={fredData.contacts.linkedin.contactInfo}
             target="_blank"
             aria-label="Linkedin"
             title="Linkedin"
@@ -39,7 +47,7 @@ const Contact = function () {
             <PlainSvgIcon iconName={'linkedin'}/>
           </a>
 
-          <a href={github.contactInfo}
+          <a href={fredData.contacts.github.contactInfo}
             target="_blank"
             aria-label="Github"
             title='Github'

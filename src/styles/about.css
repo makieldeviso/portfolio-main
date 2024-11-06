@@ -1,3 +1,4 @@
+
 .about .banner-cont {
   column-gap: calc(var(--margin) * 3);
   row-gap: calc(var(--margin) * 3);
@@ -10,6 +11,9 @@
   grid-template-areas: 
     "intro obj"
     "bg obj";
+
+  filter: opacity(0);
+  animation: fadeIn 300ms 500ms ease-in-out forwards;
 }
 
 /* Introduction */
@@ -36,11 +40,8 @@
 .about-introduction p {
   font-family: var(--common-font);
   font-size: 1rem;
-  line-height: 1.5rem;
-  word-spacing: 0.3rem;
   text-align: left;
   color: var(--lightest-color);
-  
   padding: var(--padding);
 }
 
@@ -208,8 +209,6 @@
 
   font-family: var(--common-font);
   font-size: 1rem;
-  line-height: 1.5rem;
-  word-spacing: 0.3rem;
   color: var(--lightest-color);
   text-align: left;
 }

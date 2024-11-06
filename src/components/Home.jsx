@@ -1,9 +1,62 @@
-import {fredData} from '../data/AboutData'
+import PropTypes from 'prop-types';
+
+import { fredData } from '../data/ProfileData'
 import { TechIcon } from "./Assets";
+
+const Tech = function ({techStackData}) {
+  const techTypeKeys = Object.keys(techStackData);
+  
+  const TechList = function ({techType, techList}) {
+    const TechItems = techList.map((techName, index) => {
+      const delay = `${500 + (100 * (index + 1))}ms`;
+      return (
+        <li key={techName} style={{animationDelay: delay}}>
+          <div className='tech-icon-cont'>
+            <TechIcon iconName={techName}/>
+            <p>{techName}</p>
+          </div>
+        </li>
+      )
+    })
+
+    return (
+      <ul className={`tech-list ${techType}`}>
+        {TechItems}
+      </ul>
+    )
+  }
+
+  TechList.propTypes = {
+    techType: PropTypes.string,
+    techList: PropTypes.array
+  }
+
+  const TechStackLists = techTypeKeys.map(type => {
+    const techList = techStackData[type];
+    return (
+      <TechList key={crypto.randomUUID()} 
+        techType={type} 
+        techList={techList}
+      />
+    )
+  })
+
+  return (
+    <div className="home-tech">
+      <div className="tech-cont">
+        {TechStackLists}
+      </div>
+    </div>
+  )
+}
+
+Tech.propTypes = {
+  techStackData: PropTypes.object
+}
 
 const Home = function () {
   return (
-    <div className='banner home' id='Home'>
+    <section className='banner home' id='Home'>
       <div className="banner-cont">
         <div className='home-text'>
           <h2 className='owner-name'>
@@ -17,41 +70,9 @@ const Home = function () {
           <img src={fredData.profilePictures[0]} alt="Fred Mark Baldeviso profile" />
         </div>
 
-        <TechBanner/>
+        <Tech techStackData={fredData.techStack}/>
       </div>
-    </div>
-  )
-}
-
-const TechBanner = function () {
-  const userTech = ['HTML', 'CSS', 'JavaScript', 'React'];
-
-  const TechList = function () {
-    const TechItems = userTech.map((techName, index) => {
-      const delay = `${500 + (100 * (index + 1))}ms`;
-      return (
-        <li key={techName} style={{animationDelay: delay}}>
-          <div className='tech-icon-cont'>
-            <TechIcon iconName={techName}/>
-            <p>{techName}</p>
-          </div>
-        </li>
-      )
-    })
-
-    return (
-      <ul className='tech-list'>
-        {TechItems}
-      </ul>
-    )
-  }
-
-  return (
-    <div className="home-tech">
-      <div className="tech-cont">
-        <TechList/>
-      </div>
-    </div>
+    </section>
   )
 }
 

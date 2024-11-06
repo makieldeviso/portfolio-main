@@ -1,4 +1,4 @@
-import { createContext, useCallback, useContext, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import PropTypes from 'prop-types'
 
 import projectsArr from "../data/ProjectsData";
@@ -37,11 +37,11 @@ const Project = function ({projectData}) {
  
   const handleChangePreview = function () {
     if (previewPage >= 4 ) {
-      setPreviewPage(p => p = 1);
+      setPreviewPage(1);
     }
 
     else {
-      setPreviewPage(p => p + 1);
+      setPreviewPage(previewPage + 1);
     }
   }
 
@@ -99,17 +99,18 @@ Project.propTypes = {
 }
 
 const Projects = function () {
-  const Projects = projectsArr.map((project) => {
+
+  const ProjectsList = projectsArr.map(project => {
     return (<Project key={project.id} projectData={project}/>)
-  })  
- 
+  });
+  
   return (
     <section className='banner projects' id='Projects'>
       <h2 className='banner-header'>PROJECTS</h2>
       <div className='banner-cont'>
         <div className='projects-cont'>
           <ul className='projects-list featured'>
-            {Projects}
+            {ProjectsList}
           </ul>
         </div>
       </div>

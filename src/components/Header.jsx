@@ -1,5 +1,4 @@
-import { useEffect, useRef, useState } from "react"
-import { useNavigate } from "react-router-dom";
+import { useEffect, useRef } from "react"
 
 const Header = function () {
   const headerRef = useRef(null);

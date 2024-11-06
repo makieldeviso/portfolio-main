@@ -15,7 +15,7 @@ fredData.techStack = {
   frontEnd: ['HTML', 'CSS', 'JavaScript', 'React']
 };
 
-fredData.tagline = 'Creates responsive, accessible and efficient websites and web applications. Focuses in building interactive and dynamic apps using JavaScript and React.';
+fredData.tagline = 'Creates responsive, accessible and efficient websites and web applications. Focuses in building interactive and dynamic apps with JavaScript and React.';
 
 fredData.introduction = "I'm Fred Mark Baldeviso, a budding web developer from Leyte, Philippines. I specialize in crafting streamlined digital experiences in the web. And aims to create websites that follows established trends for better user experience while still exuding creativity and style."
 
@@ -51,6 +51,23 @@ fredData.background = {
   p3: `I am career shifter. Going back, I have 3+ years experience working as a Civil Engineer in a Government Agency, monitoring physical and financial accomplishments and completion of (100+) various public infrastructures projects costing more than PHP100,000,000 (1.8 million USD). Wherein, I have adapted to crunch numbers and absorb a lot of data, processing it efficiently and translating it to reports.`,
   
   p4: `In times of respite from problem solving, I cook up some fire fried rice paired with black coffee, then get hyped by Japanese rock music.`
+}
+
+fredData.contacts = {
+  linkedin: {
+    contactName: 'Linkedin',
+    contactInfo: 'https://www.linkedin.com/in/fred-mark-baldeviso-433138243',
+  },
+
+  github: {
+    contactName: 'Github',
+    contactInfo: 'https://github.com/makieldeviso'
+  },
+
+  email: {
+    contactName: 'Gmail',
+    contactInfo: 'fredmark.baldeviso@gmail.com'
+  }
 }
 
 

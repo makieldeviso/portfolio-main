@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import { useEffect, useRef, useState } from "react"
-import { fredData } from "../data/AboutData";
+import { fredData } from "../data/ProfileData";
 
 const Introduction = function () {
   return (

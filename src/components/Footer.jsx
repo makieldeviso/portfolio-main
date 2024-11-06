@@ -1,3 +1,4 @@
+import { fredData } from "../data/ProfileData"
 import PlainSvgIcon from "./PlainSvg"
 
 const Footer = function () {
@@ -7,7 +8,7 @@ const Footer = function () {
         <p>
           <PlainSvgIcon iconName={'copyright'} assignClass={'copyright'}/>
           <span className='footer-year'>{(new Date()).getFullYear()}</span> 
-          <span>Fred Mark Baldeviso</span>
+          <span>{`${fredData.firstName} ${fredData.lastName}`}</span>
         </p>
       </div>
     </footer>

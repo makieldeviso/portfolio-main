@@ -1,0 +1,99 @@
+/* Contact banner (start) */
+.contact .banner-header {
+  margin-bottom: 0;
+}
+
+.contact .banner-cont {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: end;
+  width: 100%;
+}
+
+.email.contact {
+  display: grid;
+  grid-template-columns: max-content max-content 1fr;
+  grid-template-rows: max-content max-content;
+  padding: var(--padding);
+  align-items: center;
+  column-gap: var(--margin);
+  row-gap: calc(var(--margin) * 0.5);
+  align-items: end;
+  grid-template-areas: 
+    "message message click"
+    "icon address address";
+}
+
+.email-message {
+  grid-area: message;
+  font-size: 2rem;
+  line-height: 2rem;
+  font-family: var(--sub-title-font);
+}
+
+.click-instruction {
+  grid-area: click;
+  font-size: 0.9rem;
+  justify-self: end;
+  filter: opacity(0.8);
+}
+
+.email.contact svg {
+  grid-area: icon;
+  width: 32px;
+  height: 32px;
+  fill: var(--base-color);
+}
+
+.email-address {
+  grid-area: address;
+  font-size: 2.5rem;
+  line-height: 2.5rem;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  transition: 300ms ease-in-out;
+}
+
+.email-address:hover {
+  cursor: pointer;
+  color: var(--base-color);
+  text-decoration: underline;
+  text-decoration-color: var(--comp-color-1);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 16px;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: calc(var(--margin) * 2);
+}
+
+.contact-links a {
+  background-color: var(--base-color);
+  padding: calc(var(--padding) * 3);  
+  padding-top: calc(var(--padding) * 6); 
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  transition:  200ms ease-in-out;
+}
+
+.contact-links a:hover {
+  background-color: var(--comp-color-1);
+  transform: translateY(-16px);
+}
+
+.contact-links svg {
+  width: 50px;
+  height: 50px;
+}
+
+.contact-links svg, .contact-links svg path {
+  fill: var(--darkest-color);
+}
+/* Contact banner (end) */

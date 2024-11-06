@@ -11,7 +11,7 @@ import weatherAppPreview from '../assets/projects-preview/weather-app.png';
 import battleshipPreview from '../assets/projects-preview/battleship.png';
 import cvApplicationPreview from '../assets/projects-preview/cv-application.png';
 import memoryCardPreview from '../assets/projects-preview/memory-card.png';
-import shoppinCartPreview from '../assets/projects-preview/shopping-cart.png'
+import shoppingCartPreview from '../assets/projects-preview/shopping-cart.png'
 
 const projectsArr = [];
 class Project {
@@ -30,11 +30,11 @@ class Project {
 const shoppingCart = new Project(
   1,
   'Shopping Cart',
-  shoppinCartPreview,
+  shoppingCartPreview,
   'A shopping cart/ store website project titled A-TIER physical games store. This portfolio project shows a shopping website with a homepage banner, a shopping window and cart functionality feature. Created with React emphasizing client-side routing with React Router.',
   'https://github.com/makieldeviso/shopping-cart',
   'https://a-tier.netlify.app/',
-  'major'
+  'featured'
 )
 
 const memoryCard = new Project(
@@ -44,7 +44,7 @@ const memoryCard = new Project(
   'A memory card game with a pokemon theme. This project emphasizes state management while fetching and utilizing data from external API.',
   'https://github.com/makieldeviso/memory-card-game',
   'https://memory-card-game-4cx.pages.dev/',
-  'major'
+  'featured'
 )
 
 const cvApplication = new Project(
@@ -54,7 +54,7 @@ const cvApplication = new Project(
   'A Curriculum Vitae maker web app. Create a CV using a template by filling up form input fields.',
   'https://github.com/makieldeviso/CV-Application',
   'https://cv-application-1lb.pages.dev/',
-  'major'
+  'featured'
 )
 
 const battleship = new Project(
@@ -64,7 +64,7 @@ const battleship = new Project(
   'A battleship game that runs on the browser',
   'https://github.com/makieldeviso/battleship',
   'https://makieldeviso.github.io/battleship/',
-  'major'
+  'featured'
 )
 
 const weatherApp = new Project(
@@ -74,7 +74,7 @@ const weatherApp = new Project(
   'Weather App using free tier WeatherAPI. Enter location and check its real-time weather and forecast information in a responsive app display.',
   'https://github.com/makieldeviso/weather-app',
   'https://makieldeviso.github.io/weather-app/',
-  'major'
+  'featured'
 )
 
 const todoList = new Project(
@@ -84,7 +84,7 @@ const todoList = new Project(
   'A Todo List App that can create events with tasks, and projects that can store events. Can track and filter schedule/ deadline of affairs and todo level of priority.',
   'https://github.com/makieldeviso/todo-list',
   'https://makieldeviso.github.io/todo-list/',
-  'major'
+  'featured'
 )
 
 const restaurantPage = new Project(
@@ -94,7 +94,7 @@ const restaurantPage = new Project(
   'Restaurant page for Heartbreak Pub portfolio project.',
   'https://github.com/makieldeviso/restaurant',
   'https://makieldeviso.github.io/restaurant/',
-  'major'
+  'featured'
 )
 
 const tictactoe = new Project(
@@ -104,7 +104,7 @@ const tictactoe = new Project(
   'A tic-tac-toe game featuring 3 modes, a two-player versus mode, a computer opponent with randomized moves and an unbeatable computer opponent equipped with minimax algorithm.',
   'https://github.com/makieldeviso/tic-tac-toe',
   'https://makieldeviso.github.io/tic-tac-toe/',
-  'major'
+  'featured'
 )
 
 const library = new Project (
@@ -114,7 +114,7 @@ const library = new Project (
   'A library web app portfolio project titled myReadList that can add book information, then displays to a digital catalog.',
   'https://github.com/makieldeviso/library',
   'https://makieldeviso.github.io/library/',
-  'major'
+  'featured'
 )
 
 const adminDashboard = new Project (
@@ -154,7 +154,7 @@ const etchASketch = new Project (
   'Pixel Slate, an etch-a-sketch web app. Draw art in a pixel canvas.',
   'https://github.com/makieldeviso/sketch',
   'https://makieldeviso.github.io/sketch/',
-  'minor'
+  'featured'
 )
 
 const rockPaperScissors = new Project (

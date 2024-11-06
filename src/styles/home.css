@@ -1,0 +1,144 @@
+/* Home banner (start)*/
+@keyframes popIn {
+  from {
+    transform: translateY(50px);
+    filter: opacity(0);
+  }
+  to {
+    transform: translateY(0px);
+    filter: opacity(1);
+  }
+}
+
+.banner.home {
+  margin: auto;
+  position: relative;
+  padding-top: calc(var(--banner-margin) * 0.5);
+}
+
+.home.banner .banner-cont {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+  justify-items: center;
+  justify-content: center;
+  margin: auto;
+  margin-top: calc(var(--banner-margin) * 0.5);
+
+  grid-template-areas: 
+    "profile-text profile-img"
+    "tech .";
+}
+
+.home-text {
+  grid-area: profile-text;
+  padding: var(--padding);
+  justify-self: end;
+}
+
+.banner-cont h2.owner-name {
+  font-size: 5rem;
+  line-height: 5rem;
+  color: var(--base-color);
+  text-decoration: underline;
+  text-underline-offset: var(--padding);
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--comp-color-1);
+}
+
+.banner-cont h3.owner-title {
+  font-size: 1.8rem;
+  font-family: var(--sub-title-font);
+  line-height: 2rem;
+  margin-top: var(--margin);
+  color: var(--lighter-base-color);
+}
+
+.home-text p {
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+  color: var(--lightest-color);
+  width: 80%;
+  margin-top: calc(var(--margin) * 3);
+  word-spacing: 0.3rem;
+}
+
+.home-picture {
+  grid-area: profile-img;
+  filter: opacity(0);
+  width: max-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--padding);
+  border: 1px solid var(--base-color);
+}
+
+.home-picture img {
+  object-fit: cover;
+  width: 320px;
+  height: 320px;
+  border: 1px solid var(--base-color);
+  filter:grayscale(1);
+  transition: 200ms;
+  padding: var(--padding);
+}
+
+.home-picture img:hover{
+  filter: grayscale(0);
+  transform: rotateY(0deg) scale(1.2);
+}
+
+.banner-cont h2.owner-name, 
+.banner-cont h3.owner-title,
+.home-text p, 
+.home-picture {
+  filter: opacity(0);
+  animation: popIn 500ms 500ms ease-in-out forwards;
+}
+
+.home-tech {
+  grid-area: tech;
+  justify-self: start;
+  margin: 0;
+}
+
+.home-tech .tech-cont {
+  width: 100%;
+  grid-template-columns: 1fr;
+  justify-items: start;
+  margin: 0;
+}
+
+.tech-list {
+  justify-self: start;
+  list-style: none;
+  display: flex;
+  gap: var(--margin);
+}
+
+.tech-list li {
+  transform: translateY(50px);
+  filter: opacity(0);
+  animation: popIn 300ms ease-in-out forwards;
+} 
+
+.tech-icon-cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: var(--padding);
+  gap: 5px;
+}
+
+.tech-icon-cont img {
+  width: 30px;
+  height: 30px;
+}
+
+.tech-icon-cont p {
+  font-size: 0.8rem;
+}
+
+/* Home banner (end)*/
