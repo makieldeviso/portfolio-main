@@ -1,21 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Open+Sans&family=Oswald&display=swap');
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
-  scroll-margin: 75px;
+  scroll-margin: 80px;
 }
 
 :root {
   --padding: 8px;
   --margin: 16px;
-  --banner-margin: 75px;
+  --banner-margin: 80px;
   --max-width: 1280px;
   --title-font: "Oswald", sans-serif;
-  --common-font: "Lato", sans-serif;
-
+  --sub-title-font: "Lato", sans-serif;
+  --common-font: "Open Sans", sans-serif;
 
   --base-color: #537FE7;
   --lighter-base-color: #C0EEF2;
@@ -172,6 +172,7 @@ header.scrolled .page-name span.rest {
 .banner-header {
   font-size: 3.5rem;
   color: var(--lighter-base-color);
+  margin-bottom: calc(var(--margin) * 3);
 }
 
 /* Main Common (end) */
@@ -254,7 +255,6 @@ header.scrolled .page-name span.rest {
 }
 
 .home-picture img:hover{
-  cursor: url('../assets/rhombus.png'), pointer;
   filter: grayscale(0);
   transform: rotateY(0deg) scale(1.2);
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
@@ -327,7 +327,7 @@ header.scrolled .page-name span.rest {
 
 /* Home banner (end)*/
 
-/* Portfolio banner (start) */
+/* Projects banner (start) */
 .banner.projects {
   display: grid;
   grid-template-columns: 1fr;
@@ -343,10 +343,12 @@ header.scrolled .page-name span.rest {
 }
 
 .projects-list {
-  gap: calc(var(--margin) * 2);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   list-style-type: none;
+  gap: calc(var(--margin) * 2);
+
+  padding: var(--padding);
 }
 
 .project {
@@ -450,7 +452,7 @@ header.scrolled .page-name span.rest {
 .project .title {
   grid-area: title;
   font-size: 1.5rem;
-  font-family: var(--common-font);
+  font-family: var(--sub-title-font);
   color: var(--lighter-base-color);
   text-decoration: underline;
   text-underline-offset: 0px;
@@ -530,9 +532,13 @@ header.scrolled .page-name span.rest {
   background-color: transparent;
 }
 
-/* Portfolio banner (end) */
+/* Projects banner (end) */
 
 /* Contact banner (start) */
+.contact .banner-header {
+  margin-bottom: 0;
+}
+
 .contact .banner-cont {
   display: flex;
   flex-wrap: wrap;
@@ -590,7 +596,6 @@ header.scrolled .page-name span.rest {
 .contact-links svg, .contact-links svg path {
   fill: var(--darkest-color);
 }
-
 /* Contact banner (end) */
 
 /* footer (start) */

@@ -1,25 +1,18 @@
 .about .banner-cont {
-  gap: calc(var(--margin) * 2);
+  column-gap: calc(var(--margin) * 3);
+  row-gap: calc(var(--margin) * 3);
+
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: max-content 1fr;
+  grid-template-rows: max-content max-content;
   justify-content: end;
   align-items: start;
   grid-template-areas: 
     "intro obj"
     "bg obj";
-  border-left: 1px solid rgba(255, 152, 67, 0.3);
 }
 
-/* .about .banner-cont {
-  grid-template-columns: 1fr;
-  grid-auto-rows: max-content;
-  grid-template-areas: 
-    "intro"
-    "obj"
-    "bg";
-} */
-
+/* Introduction */
 .about-introduction {
   grid-area: intro;
   padding: var(--padding);
@@ -29,22 +22,25 @@
 .about-objectives h3,
 .about-background h3 {
   font-size: 2rem;
-  padding: 0 var(--padding);
   color: var(--base-color);
   text-align: left;
   text-decoration: underline;
   text-decoration-color: rgba(255, 152, 67, 0.3);
   text-underline-offset: 8px;
   text-decoration-thickness: 1px;
+
+  margin-bottom: var(--margin);
+  padding: 0 var(--padding);
 }
 
 .about-introduction p {
+  font-family: var(--common-font);
   font-size: 1rem;
   line-height: 1.5rem;
   word-spacing: 0.3rem;
-  font-family: var(--common-font);
-  color: var(--lighter-base-color);
   text-align: left;
+  color: var(--lightest-color);
+  
   padding: var(--padding);
 }
 
@@ -53,6 +49,7 @@
   grid-area: obj;
   width: 100%;
   height: 100%;
+
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: max-content 1fr; 
@@ -60,56 +57,80 @@
 
 .objective-content {
   width: 100%;
-  height: 100%;
-  position: relative;
-  perspective: 1000px;
+
   display: grid;
   grid-template-columns: 1fr;
   grid-auto-rows: 1fr;
+  position: relative;
 }
 
 .objective-panels {
-  /* position: absolute; */
   padding: var(--padding);
+  position: absolute;
 }
 
 .about-objective {
+  background-color: var(--darkest-color);
+  border: 1px solid rgba(255, 152, 67, 0.3);
+  
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  grid-template-rows: max-content 0fr;
+  grid-template-areas: 
+    "icon heading"
+    "icon text";
+
+  transition: 300ms ease-in-out;
   position: relative;
   overflow: hidden;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: max-content 0fr;
-  transition: 300ms ease-in-out;
-  border: 1px solid rgba(255, 152, 67, 0.3);
+}
+
+.about-objective:not(.active):hover .objective-icon,
+.about-objective:not(.active):hover .objective-heading {
+  cursor: pointer;
+  fill: var(--comp-color-1);
+  color: var(--comp-color-1);
 }
 
 .about-objective.active {
+  border: 1px solid rgba(255, 152, 67, 0.8);
+
   grid-template-rows: max-content 1fr;
-  border: 1px solid rgba(255, 152, 67, 0.3);
+  transform: scale(101%);
+  z-index: 2;
 }
 
 .objective-heading{
-  font-size: 1.8rem;
-  line-height: 1.8rem;
-  padding: calc(var(--padding) * 2);
-  font-family: var(--title-font);
-  text-align: start;
+  grid-area: heading;
+  align-self: center;
   border: 1px solid transparent;
-  background-color: var(--darkest-color);
-  color: var(--comp-color-2);
+  padding: calc(var(--padding) * 2);
   width: 100%;
-  filter: opacity(0.5);
+
+  font-family: var(--sub-title-font);
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  text-align: start;
+  color: var(--base-color);
+  
   transition: 300ms ease-in-out;
 }
 
-.objective-heading:hover {
-  cursor: pointer;
-  color: var(--comp-color-2);
+.about-objective.active .objective-heading{
   filter: opacity(1);
 }
 
-.about-objective.active .objective-heading{
-  color: var(--comp-color-1);
+.objective-icon {
+  grid-area: icon;
+  align-self: start;
+  width: 32px;
+  height: 32px;
+  margin: var(--margin);
+  fill: var(--base-color);
+  transition: 300ms ease-in-out;
+}
+
+.about-objective.active .objective-icon {
   filter: opacity(1);
 }
 
@@ -131,15 +152,17 @@
 }
 
 .objective-text {
-  font-size: 1rem;
+  grid-area: text;
+  padding: 0 calc(var(--padding) * 2);
+  height: 0%;
+
+  font-size: 0.9rem;
   line-height: 1.5rem;
   word-spacing: 0.3rem;
   color: var(--lightest-color);
-  height: 0%;
+  
   overflow: hidden;
-  padding: 0 calc(var(--padding) * 2);
   transition: 300ms ease-in-out;
-  background-color: #181823;
   transform-origin: center;
 }
 
@@ -149,64 +172,60 @@
   padding-top: 0;
 }
 
+/* Background */
 .about-background {
   grid-area: bg;
   padding: var(--padding);
+
   display: grid;
   grid-template-columns: max-content 1fr;
-  grid-template-rows: 1fr max-content;
+  grid-template-rows: max-content max-content;
   column-gap: var(--margin);
+  overflow: hidden;
 }
 
 .about-background .background-text-cont {
   width: 100%;
-  padding: var(--padding);
+  height: 100%;
   grid-column: 1 / 3;
   grid-row: 2 / 3;
-  position: relative;
   overflow: hidden;
+  position: relative;
 }
 
 .about-background .background-text-cont .text-rail {
-  width: 100%;
+  height: 100%;
+
   display: grid;
-  grid-template-columns: repeat(4, 100%); 
+  grid-template-columns: repeat(4, 100%);
   grid-template-rows: 1fr;
   transition: 300ms ease-in-out;
 }
 
 .background-text-cont p {
+  width: 100%;
+  padding: var(--padding);
+
+  font-family: var(--common-font);
   font-size: 1rem;
   line-height: 1.5rem;
   word-spacing: 0.3rem;
-  color: var(--lighter-base-color);
-  font-family: var(--common-font);
+  color: var(--lightest-color);
   text-align: left;
-  padding: var(--padding);
-}
-
-@keyframes show-text {
-  from {
-    height: 0px;
-    filter: opacity(0);
-  }
-  to {
-    height: 100px;
-    min-height: max-content;
-    filter: opacity(1);
-  }
 }
 
 .background-page-buttons {
-  display: flex;
-  justify-content: flex-start;
-  align-items: end;
-  gap: calc(var(--margin));
+  align-self: center;
   grid-column: 2 / 3;
   grid-row: 1 / 2;
   padding: var(--padding);
-}
+  height: max-content;
 
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: calc(var(--margin));
+}
 
 .background-page-buttons button {
   width: 12px;
@@ -221,15 +240,17 @@
   cursor: pointer;
   filter: opacity(1);
   box-shadow: 0 0 3px 1px rgba(192, 238, 242,0.5);
+  background-color: rgba(255, 152, 67, 0.2);
 }
 
 .background-page-buttons button.active {
   border: 2px solid var(--comp-color-1);
   background-color: var(--darkest-color);
   filter: opacity(1);
+  background-color: rgba(255, 152, 67, 0.2);
 }
 
 .background-page-buttons button:disabled {
   cursor: default;
-  transform: translateY(-4px) rotateZ(180deg);
+  transform: translateY(-4px) rotateZ(135deg);
 }

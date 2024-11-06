@@ -14,11 +14,10 @@ const Introduction = function () {
 const ObjectivePanel = function ({data, currentActive}) {
   const panelRef = useRef(null);
   const currentActiveRef = currentActive;
-
+  
   const handleOpenPanel = function () {
     currentActiveRef.current.classList.remove('active');
     panelRef.current.classList.add('active');
-
     currentActiveRef.current = panelRef.current;
   }
 
@@ -31,9 +30,8 @@ const ObjectivePanel = function ({data, currentActive}) {
 
   return (
     <div ref={panelRef} className={`about-objective`} data-id={data.title}>
-      <h4 className='objective-heading'onClick={handleOpenPanel}>
-        {data.title}
-      </h4>
+      <h4 className='objective-heading' onClick={handleOpenPanel}>{data.title}</h4>
+      {data.icon}
       <p className='objective-text'>{data.description}</p>   
     </div>
   )
@@ -42,6 +40,7 @@ const ObjectivePanel = function ({data, currentActive}) {
 ObjectivePanel.propTypes = { 
   data: PropTypes.shape({
     title: PropTypes.string,
+    icon: PropTypes.object,
     description: PropTypes.string
   }),
   currentActive: PropTypes.object
@@ -89,7 +88,7 @@ const PageButtons = function ({handleChangeText, textKeys}) {
     const pageNumber = index + 1;
     const activeStatus = pageNumber <= page ? 'active': '';
     const disabled = pageNumber === page;
-    console.log(disabled)
+    
     return (
       <button 
         key={key} 
@@ -136,8 +135,8 @@ const Background = function () {
     <div className={'about-background'}>
       <h3>Background</h3>
       <PageButtons 
-          handleChangeText={handleChangeText}
-          textKeys={textKeys}
+        handleChangeText={handleChangeText}
+        textKeys={textKeys}
       />
 
       <div className='background-text-cont'>
