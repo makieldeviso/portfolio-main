@@ -61,7 +61,7 @@
   cursor: pointer;
   color: var(--base-color);
   text-decoration: underline;
-  text-decoration-color: var(--comp-color-1);
+  text-decoration-color: var(--comp-color);
   text-decoration-thickness: 1px;
   text-underline-offset: 16px;
 }
@@ -84,7 +84,7 @@
 }
 
 .contact-links a:hover {
-  background-color: var(--comp-color-1);
+  background-color: var(--comp-color);
   transform: translateY(-16px);
 }
 

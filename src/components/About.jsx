@@ -5,75 +5,10 @@ import { fredData } from "../data/ProfileData";
 const Introduction = function () {
   return (
     <div className='about-introduction'>
-      <h3>Introduction</h3>
+      <h4>Introduction</h4>
       <p>{fredData.introduction}</p>
     </div>
   )
-}
-
-const ObjectivePanel = function ({data, currentActive}) {
-  const panelRef = useRef(null);
-  const currentActiveRef = currentActive;
-  
-  const handleOpenPanel = function () {
-    currentActiveRef.current.classList.remove('active');
-    panelRef.current.classList.add('active');
-    currentActiveRef.current = panelRef.current;
-  }
-
-  useEffect(() => {
-    if (panelRef.current.dataset.id.match(/User-centric design/i)) {
-      panelRef.current.classList.add('active');
-      currentActiveRef.current = panelRef.current;
-    }
-  },[])
-
-  return (
-    <div ref={panelRef} className={`about-objective`} data-id={data.title}>
-      <h4 className='objective-heading' onClick={handleOpenPanel}>{data.title}</h4>
-      {data.icon}
-      <p className='objective-text'>{data.description}</p>   
-    </div>
-  )
-}
-
-ObjectivePanel.propTypes = { 
-  data: PropTypes.shape({
-    title: PropTypes.string,
-    icon: PropTypes.object,
-    description: PropTypes.string
-  }),
-  currentActive: PropTypes.object
-};
-
-const Objectives = function () {
-  const aboutContent = fredData.objectives;
-  const aboutKeys = Object.keys(aboutContent);
-  const currentActive = useRef(null);
-
-  const panels = aboutKeys.map(key => {
-    return (
-      <ObjectivePanel 
-        key={crypto.randomUUID()} 
-        data={aboutContent[key]}
-        currentActive={currentActive}
-      />
-    )
-  })
-
-  return (
-    <div className='about-objectives'>
-      <h3>Objectives</h3>
-      <div className='objective-content'>
-        <div className='objective-panels'>{panels}</div>
-      </div>
-    </div>
-  )
-}
-
-Objectives.propTypes = {
-  aboutContent: PropTypes.object,
-  setTextContent: PropTypes.func,
 }
 
 const PageButtons = function ({handleChangeText, textKeys}) {
@@ -133,7 +68,7 @@ const Background = function () {
   
   return (
     <div className={'about-background'}>
-      <h3>Background</h3>
+      <h4>Background</h4>
       <PageButtons 
         handleChangeText={handleChangeText}
         textKeys={textKeys}
@@ -148,10 +83,104 @@ const Background = function () {
   )
 }
 
+
+const ObjectivesButtons = function ({objectives, screenRef}) {
+
+  const handleShowObjective = function (e) {
+    const objectiveDescription = objectives[e.target.value].description;
+    const objectiveIndex = e.target.dataset.index;
+    const translation = `translateX(${-100 * objectiveIndex}%)`;
+    
+    screenRef.current.style.transform = translation;
+    console.log(screenRef.current)
+  }
+
+  const objectivesKeys = Object.keys(objectives);
+  const objectivesButtons = objectivesKeys.map((key, index) => {
+    return(
+      <button key={key}
+        className='objective-button'
+        value={key}
+        data-index={index}
+        aria-label={objectives[key].title}
+        onClick={handleShowObjective}
+      >
+        {objectives[key].icon}
+      </button>
+    )
+  })
+
+  return (
+    <div className='panel-buttons'>
+      {objectivesButtons}
+
+    </div>
+  )
+}
+
+const ObjectivesScreen = function ({objectives, screenRef}) {
+
+  const objectivesKeys = Object.keys(objectives);
+  const objectivesDisplay = objectivesKeys.map(key => {
+    return (
+      <div key={key} className='objective-display'>
+        <h5 className='objective-heading'>{objectives[key].title}</h5>
+        <p>{objectives[key].description}</p>
+      </div>
+    )
+  });
+
+  const gridStyle = {
+    display: 'grid',
+    gridTemplateColumns: `repeat(${objectivesKeys.length}, 100%)`,
+    gridTemplateRows: '1fr',
+  }
+
+  return(
+    <div className='panel-screen'>
+      <div className='screen-rail' ref={screenRef} style={{...gridStyle}}>
+        {objectivesDisplay}
+      </div>
+    </div>
+  )
+}
+
+
+const Objectives = function () {
+  const objectives = fredData.objectives;
+  const screenRef = useRef(null);
+
+  return (
+    <div className='about-objectives'>
+      <h4>Objectives</h4>
+
+      <div className='objectives-panel'>
+
+        <ObjectivesButtons objectives={objectives} screenRef={screenRef}/>
+        <ObjectivesScreen objectives={objectives} screenRef={screenRef}/>
+
+      </div>
+
+    </div>
+  )
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 const About = function () {
   return (
     <section className='banner about' id='About'>
-      <h2 className="banner-header">ABOUT</h2>
+      <h3 className="banner-header">ABOUT</h3>
       <div className="banner-cont">
         <Introduction/>
         <Objectives/>

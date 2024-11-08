@@ -57,15 +57,16 @@
 
 .projects-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
   list-style-type: none;
-  gap: calc(var(--margin) * 2);
+  gap: calc(var(--margin) * 5);
   padding: var(--padding);
 }
 
 .project {
   transform: translateX(-100vw);
   opacity: 0;
+  box-shadow: 0 0 8px 1px var(--darkest-color);
 }
 
 @keyframes show-project {
@@ -83,34 +84,8 @@
   animation: show-project 500ms ease-in-out forwards;
 }
 
-.project.shown:nth-last-of-type(3n) {
-  animation-delay: 0ms;
-}
-
-.project.shown:nth-last-of-type(3n+1) {
+.project.shown:nth-last-of-type(2n) {
   animation-delay: 200ms;
-}
-
-.project.shown:nth-last-of-type(3n+2) {
-  animation-delay: 400ms;
-}
-
-@media only screen and (max-width: 1145px) {
-  .project.shown:nth-last-of-type(3n) {
-    animation-delay: unset;
-  }
-  
-  .project.shown:nth-last-of-type(3n+1) {
-    animation-delay: unset;
-  }
-  
-  .project.shown:nth-last-of-type(3n+2) {
-    animation-delay: unset;
-  }
-
-  .project.shown:nth-last-of-type(2n) {
-    animation-delay: 200ms;
-  }
 }
 
 .project-cont {
@@ -127,8 +102,8 @@
   );
 
   background-color: rgba(83, 127, 231,0.2);
-  border: 1px solid rgba(24, 24, 35, 0.3);
-  box-shadow: 0 0 5px 3px rgb(192, 238, 242, 0.1);
+  border: 1px solid rgba(192, 238, 242, 0.5);
+  box-shadow: inset 0 0 8px 1px rgb(192, 238, 242, 0.3);
 
   display: grid;
   grid-template-columns: 1fr;
@@ -143,11 +118,11 @@
 }
 
 .project-cont:hover {
-  border: 1px solid rgba(255, 152, 67, 0.3);
+  border: 1px solid rgba(255, 152, 67, 0.5);
   background: linear-gradient(
-    rgba(24, 24, 35, 0.8),
+    rgba(24, 24, 35, 0.7),
     rgb(24, 24, 35, 0.1),
-    rgba(24, 24, 35, 0.7)
+    rgba(24, 24, 35, 0.6)
   );
   
   background-color: rgba(83, 127, 231,0.2);
@@ -155,21 +130,17 @@
 
 .project-cont:hover .title {
   text-decoration-color: rgba(255, 152, 67, 0.3);
-  color: var(--base-color);
+  color: var(--darker-base-color);
 }
 
 .project-cont:hover .project-btns button {
   background-color: var(--base-color);
 }
 
-.project-cont:hover .preview {
-  filter: grayscale(0);
-}
-
 .project .title {
   grid-area: title;
   font-size: 1.5rem;
-  color: var(--lighter-base-color);
+  color: var(--base-color);
   text-decoration: underline;
   text-underline-offset: 8px;
   text-decoration-thickness: 1px;
@@ -181,15 +152,13 @@
   grid-area: preview;
   border: 1px solid transparent;
   align-self: start;
-  width: 100%;
   transition: 300ms;
-  filter: grayscale(1);
 }
 
 .project .preview:hover {
   cursor: pointer;
   transform-origin: center center;
-  transform: rotateX(10deg);
+  
   border: 1px solid var(--comp-color-1);
   box-shadow: 0 0 5px 1px rgba(255, 152, 67, 0.3);
 }
@@ -197,8 +166,6 @@
 .project .description {
   grid-area: desc;
   align-self: start;
-  font-size: 1rem;
-  line-height: 1.5rem;
   width: 100%;
 }
 
@@ -219,7 +186,7 @@
   height: max-content;
   font-size: 1rem;
   font-family: var(--title-font);
-  background-color: var(--lighter-base-color);
+  background-color: var(--base-color);
   border: 1px solid transparent;
   padding: 4px;
   padding-top: 12px;
@@ -242,7 +209,7 @@
 
 .project-btns button:hover {
   cursor: pointer;
-  background-color: var(--comp-color-1)!important;
+  background-color: var(--comp-color)!important;
   transform: translateY(-8px);
 }
 
@@ -250,8 +217,8 @@
   justify-self: end;
   font-size: 1rem;
   font-family: var(--title-font);
-  color: var(--lighter-base-color);
+  color: var(--base-color);
   padding: var(--padding) calc(var(--padding) * 2);
-  border: 1px solid var(--lighter-base-color);
+  border: 1px solid var(--base-color);
   background-color: transparent;
 }
