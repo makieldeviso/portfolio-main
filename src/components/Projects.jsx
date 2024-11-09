@@ -76,7 +76,7 @@ const Project = function ({projectData}) {
             className={`preview-img sprite-img page-${previewPage}`}
           />
         </div>
-        <h3 className='title'>{projectData.title.toUpperCase()}</h3>
+        <h3 className='title'>{projectData.title}</h3>
         <p className='description'>{projectData.description}</p>
 
         <ProjectLinkButtons 

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import { useEffect, useRef, useState } from "react"
+import { useRef, useState } from "react"
 import { fredData } from "../data/ProfileData";
 
 const Introduction = function () {
@@ -83,83 +83,73 @@ const Background = function () {
   )
 }
 
+const ObjectivesCards= function ({objectives}) {
+  const activeCardRef = useRef(null);
+  
+  const Card = function ({objectiveKey}) {
+    const cardRef = useRef(null);
+    const handleCardFlip = function () {
+      if (activeCardRef.current && activeCardRef.current !== cardRef.current) {
+        activeCardRef.current.classList.remove('active');
+      }
+      
+      if (cardRef.current.classList.contains('active')) {
+        cardRef.current.classList.remove('active');
 
-const ObjectivesButtons = function ({objectives, screenRef}) {
+      } else {
+        cardRef.current.classList.add('active');
+        activeCardRef.current = cardRef.current;
+      }
+    }
 
-  const handleShowObjective = function (e) {
-    const objectiveDescription = objectives[e.target.value].description;
-    const objectiveIndex = e.target.dataset.index;
-    const translation = `translateX(${-100 * objectiveIndex}%)`;
-    
-    screenRef.current.style.transform = translation;
-    console.log(screenRef.current)
+    return (
+      <div className='objective-card' onClick={handleCardFlip} ref={cardRef}>
+        <div className='card-face front-face'>
+          <h5 className='objective-title'>{objectives[objectiveKey].title}</h5>
+          <p className='objective-description'>{objectives[objectiveKey].description}</p>
+        </div>
+
+        <div className='card-face back-face'>
+          <h5 className='objective-title'>{objectives[objectiveKey].title}</h5>
+          {objectives[objectiveKey].icon}
+        </div>
+      </div>
+    )
   }
 
-  const objectivesKeys = Object.keys(objectives);
-  const objectivesButtons = objectivesKeys.map((key, index) => {
-    return(
-      <button key={key}
-        className='objective-button'
-        value={key}
-        data-index={index}
-        aria-label={objectives[key].title}
-        onClick={handleShowObjective}
-      >
-        {objectives[key].icon}
-      </button>
-    )
-  })
-
-  return (
-    <div className='panel-buttons'>
-      {objectivesButtons}
-
-    </div>
-  )
-}
-
-const ObjectivesScreen = function ({objectives, screenRef}) {
+  Card.propTypes = {
+    objectiveKey: PropTypes.string
+  }
 
   const objectivesKeys = Object.keys(objectives);
   const objectivesDisplay = objectivesKeys.map(key => {
-    return (
-      <div key={key} className='objective-display'>
-        <h5 className='objective-heading'>{objectives[key].title}</h5>
-        <p>{objectives[key].description}</p>
-      </div>
-    )
+    return <Card key={key} objectiveKey={key}/>
   });
 
-  const gridStyle = {
-    display: 'grid',
-    gridTemplateColumns: `repeat(${objectivesKeys.length}, 100%)`,
-    gridTemplateRows: '1fr',
-  }
-
   return(
-    <div className='panel-screen'>
-      <div className='screen-rail' ref={screenRef} style={{...gridStyle}}>
-        {objectivesDisplay}
-      </div>
+    <div className='objectives-cards'>
+      {objectivesDisplay}
     </div>
   )
 }
 
+ObjectivesCards.propTypes = {
+  objectives: PropTypes.object
+}
 
 const Objectives = function () {
   const objectives = fredData.objectives;
-  const screenRef = useRef(null);
 
   return (
     <div className='about-objectives'>
       <h4>Objectives</h4>
-
-      <div className='objectives-panel'>
-
-        <ObjectivesButtons objectives={objectives} screenRef={screenRef}/>
-        <ObjectivesScreen objectives={objectives} screenRef={screenRef}/>
-
+      
+      <div className='objectives-display'>
+        <ObjectivesCards objectives={objectives}/>
+        <div></div>
+        <div></div>
       </div>
+      
 
     </div>
   )

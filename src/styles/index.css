@@ -37,7 +37,7 @@ h4, h5 {
 p {
   font-family: var(--common-font);
   font-size: 1rem;
-  line-height: 1.5rem;
+  line-height: 150%;
   word-spacing: 0.3rem;
   text-align: left;
   color: var(--lightest-color);
@@ -64,7 +64,7 @@ body::before {
   top: 0;
   left: 0;
   background-position: center;
-  background-image: url('../assets/bg-2.jpg');
+  background-image: url('../assets/bg-1.jpg');
   background-size: cover;
   background-repeat: repeat;
   opacity: 0.1;
@@ -209,7 +209,7 @@ header.scrolled .page-name span.rest {
 
 .banner-header {
   font-size: 3.5rem;
-  line-height: 3.8rem;
+  line-height: 150%;
   color: var(--darker-base-color);
   margin-bottom: calc(var(--margin) * 2);
 }

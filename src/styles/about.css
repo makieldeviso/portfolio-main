@@ -22,8 +22,8 @@
 }
 
 .about h4 {
-  font-size: 2rem;
-  line-height: 2.5rem;
+  font-size: 1.5rem;
+  line-height: 150%;
   color: var(--base-color);
   text-align: left;
   text-decoration: underline;
@@ -37,69 +37,130 @@
 /* Objectives */
 .about-objectives {
   grid-area: obj;
+  width: 100%;
 }
 
-.objectives-panel {
+.objectives-display {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  border: 1px solid var(--lightest-color);
-  padding: var(--padding);
+  grid-template-columns: 1fr;
+}
+
+.objectives-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 1fr;
   gap: var(--margin);
+  padding: var(--padding);
   align-content: center;
   justify-content: center;
   justify-items: center;
+  perspective: 1000px;
 }
 
-.panel-buttons {
+.objective-card {
   display: grid;
-  width: max-content;
-  grid-template-columns: 1fr 1fr;  
-  grid-template-rows: 1fr 1fr;
-  border: 1px solid var(--lightest-color);
-  padding: var(--padding);
-  justify-content: center;
-  align-items: center;
-}
-
-.objective-button {
-  border: 1px solid var(--base-color);
-  background-color: var(--darkest-color);
-  padding: var(--padding);
-  width: 100px;
-  height: 100px;
-  margin: var(--margin);
-}
-
-.objective-button:hover {
-  cursor: pointer;
-}
-
-.objective-button svg {
-  fill: var(--base-color);
   width: 100%;
   height: 100%;
-  aspect-ratio: 1 / 1;
-  object-position: center;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  align-items: start;
+  border: 1px solid transparent;
+
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateY(0deg);
+  transition: 300ms ease-in-out;
+  animation: flip-back 300ms ease-in-out 1;
 }
 
-.panel-screen {
-  border: 1px solid var(--lightest-color);
+.objective-card:hover {
+  cursor: pointer;
+  border: 1px solid var(--comp-color);
+  box-shadow: 0 0 8px 1px rgba(110, 194, 7, 0.4);
+}
+
+@keyframes flip-back {
+  from {
+    transform: rotateY(180deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+@keyframes flip-front {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(180deg);
+  }
+}
+
+.objective-card.active{
+  animation: flip-front 300ms ease-in-out 1 forwards;
+}
+
+.card-face {
   width: 100%;
-  overflow: hidden;
+  height: 100%;
+  padding: calc(var(--padding) * 2);
+  border: 1px solid rgba(255, 247, 233, 0.4);
+  box-shadow: inset 0 0 8px 1px rgba(64, 162, 227, 0.4);
+  background: linear-gradient(
+    rgba(24, 24, 35, 0.1) 5%,
+    rgba(64, 162, 227, 0.1) 80%,
+    rgba(24, 24, 35, 0.1)
+  ); 
+  background-color: var(--darkest-color);
 }
 
-.objective-display {
-  padding: var(--padding);
+.front-face {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: max-content 1fr;
+  transform: rotateY(180deg);
 }
 
-.objective-heading {
+.back-face {
+  backface-visibility: hidden;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: max-content 1fr;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.objective-card svg {
+  fill: var(--base-color);
+  width: 100px;
+  height: 100px;  
+}
+
+.objective-title {
   font-size: 1.5rem;
-  line-height: 1.8rem;
+  font-family: var(--sub-title-font);
+  line-height: 150%;
   color: var(--base-color);
+  align-self: center;
+  width: 100%;
+  margin-bottom: var(--margin);
 }
 
+.objective-description {
+  font-size: 0.8rem;
+  width: 100%;
+  height: 100%;
+}
 
-
+.objective-description-cont svg {
+  width: 100px;
+  height: 100px;
+}
 
 /* Background */
 .about-background {
@@ -132,7 +193,6 @@
 
 .background-text-cont p {
   width: 100%;
-  padding: var(--padding);
 }
 
 .background-page-buttons {
