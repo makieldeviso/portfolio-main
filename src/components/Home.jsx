@@ -59,10 +59,10 @@ const Home = function () {
     <section className='banner home' id='Home'>
       <div className="banner-cont">
         <div className='home-text'>
-          <h2 className='owner-name'>
+          <h1 className='owner-name'>
             {fredData.firstName.toUpperCase()}
-          </h2>
-          <h3 className='owner-title'>{fredData.title}</h3>
+          </h1>
+          <h2 className='owner-title'>{fredData.title}</h2>
           <p>{fredData.tagline}</p>
         </div>
 

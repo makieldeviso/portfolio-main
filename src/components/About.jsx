@@ -1,79 +1,14 @@
 import PropTypes from 'prop-types'
-import { useEffect, useRef, useState } from "react"
+import { useRef, useState } from "react"
 import { fredData } from "../data/ProfileData";
 
 const Introduction = function () {
   return (
     <div className='about-introduction'>
-      <h3>Introduction</h3>
+      <h4>Introduction</h4>
       <p>{fredData.introduction}</p>
     </div>
   )
-}
-
-const ObjectivePanel = function ({data, currentActive}) {
-  const panelRef = useRef(null);
-  const currentActiveRef = currentActive;
-  
-  const handleOpenPanel = function () {
-    currentActiveRef.current.classList.remove('active');
-    panelRef.current.classList.add('active');
-    currentActiveRef.current = panelRef.current;
-  }
-
-  useEffect(() => {
-    if (panelRef.current.dataset.id.match(/User-centric design/i)) {
-      panelRef.current.classList.add('active');
-      currentActiveRef.current = panelRef.current;
-    }
-  },[])
-
-  return (
-    <div ref={panelRef} className={`about-objective`} data-id={data.title}>
-      <h4 className='objective-heading' onClick={handleOpenPanel}>{data.title}</h4>
-      {data.icon}
-      <p className='objective-text'>{data.description}</p>   
-    </div>
-  )
-}
-
-ObjectivePanel.propTypes = { 
-  data: PropTypes.shape({
-    title: PropTypes.string,
-    icon: PropTypes.object,
-    description: PropTypes.string
-  }),
-  currentActive: PropTypes.object
-};
-
-const Objectives = function () {
-  const aboutContent = fredData.objectives;
-  const aboutKeys = Object.keys(aboutContent);
-  const currentActive = useRef(null);
-
-  const panels = aboutKeys.map(key => {
-    return (
-      <ObjectivePanel 
-        key={crypto.randomUUID()} 
-        data={aboutContent[key]}
-        currentActive={currentActive}
-      />
-    )
-  })
-
-  return (
-    <div className='about-objectives'>
-      <h3>Objectives</h3>
-      <div className='objective-content'>
-        <div className='objective-panels'>{panels}</div>
-      </div>
-    </div>
-  )
-}
-
-Objectives.propTypes = {
-  aboutContent: PropTypes.object,
-  setTextContent: PropTypes.func,
 }
 
 const PageButtons = function ({handleChangeText, textKeys}) {
@@ -133,7 +68,7 @@ const Background = function () {
   
   return (
     <div className={'about-background'}>
-      <h3>Background</h3>
+      <h4>Background</h4>
       <PageButtons 
         handleChangeText={handleChangeText}
         textKeys={textKeys}
@@ -148,10 +83,94 @@ const Background = function () {
   )
 }
 
+const ObjectivesCards= function ({objectives}) {
+  const activeCardRef = useRef(null);
+  
+  const Card = function ({objectiveKey}) {
+    const cardRef = useRef(null);
+    const handleCardFlip = function () {
+      if (activeCardRef.current && activeCardRef.current !== cardRef.current) {
+        activeCardRef.current.classList.remove('active');
+      }
+      
+      if (cardRef.current.classList.contains('active')) {
+        cardRef.current.classList.remove('active');
+
+      } else {
+        cardRef.current.classList.add('active');
+        activeCardRef.current = cardRef.current;
+      }
+    }
+
+    return (
+      <div className='objective-card' onClick={handleCardFlip} ref={cardRef}>
+        <div className='card-face front-face'>
+          <h5 className='objective-title'>{objectives[objectiveKey].title}</h5>
+          <p className='objective-description'>{objectives[objectiveKey].description}</p>
+        </div>
+
+        <div className='card-face back-face'>
+          <h5 className='objective-title'>{objectives[objectiveKey].title}</h5>
+          {objectives[objectiveKey].icon}
+        </div>
+      </div>
+    )
+  }
+
+  Card.propTypes = {
+    objectiveKey: PropTypes.string
+  }
+
+  const objectivesKeys = Object.keys(objectives);
+  const objectivesDisplay = objectivesKeys.map(key => {
+    return <Card key={key} objectiveKey={key}/>
+  });
+
+  return(
+    <div className='objectives-cards'>
+      {objectivesDisplay}
+    </div>
+  )
+}
+
+ObjectivesCards.propTypes = {
+  objectives: PropTypes.object
+}
+
+const Objectives = function () {
+  const objectives = fredData.objectives;
+
+  return (
+    <div className='about-objectives'>
+      <h4>Objectives</h4>
+      
+      <div className='objectives-display'>
+        <ObjectivesCards objectives={objectives}/>
+        <div></div>
+        <div></div>
+      </div>
+      
+
+    </div>
+  )
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 const About = function () {
   return (
     <section className='banner about' id='About'>
-      <h2 className="banner-header">ABOUT</h2>
+      <h3 className="banner-header">ABOUT</h3>
       <div className="banner-cont">
         <Introduction/>
         <Objectives/>
