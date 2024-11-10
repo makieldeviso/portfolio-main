@@ -68,16 +68,19 @@ fredData.background = {
 fredData.contacts = {
   linkedin: {
     contactName: 'Linkedin',
+    icon: <PlainSvgIcon iconName={'linkedin'}/>,
     contactInfo: 'https://www.linkedin.com/in/fred-mark-baldeviso-433138243',
   },
 
   github: {
     contactName: 'Github',
+    icon: <PlainSvgIcon iconName={'github'}/>,
     contactInfo: 'https://github.com/makieldeviso'
   },
 
   email: {
     contactName: 'Gmail',
+    icon: <PlainSvgIcon iconName={'mail'}/>,
     contactInfo: 'fredmark.baldeviso@gmail.com'
   }
 }

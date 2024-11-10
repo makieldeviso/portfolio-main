@@ -14,6 +14,7 @@ const Contact = function () {
       instructRef.current.textContent = 'Copied';
       setTimeout(() => {
         instructRef.current.textContent = 'Click to copy';
+
       }, 1000);
 
     } catch (error){
@@ -29,7 +30,7 @@ const Contact = function () {
         <div className="email contact">
           <p className='email-message'>Get in touch</p>
           <p ref={instructRef} className="click-instruction">Click to copy</p>
-          <PlainSvgIcon iconName={'mail'}/>
+          {fredData.contacts.email.icon}
           <p 
             className="email-address"
             onClick={handleCopyEmailAdd}
@@ -41,18 +42,18 @@ const Contact = function () {
         <div className="contact-links">
           <a href={fredData.contacts.linkedin.contactInfo}
             target="_blank"
-            aria-label="Linkedin"
-            title="Linkedin"
+            aria-label="Visit Linkedin page"
+            title="Visit Linkedin page"
           >
-            <PlainSvgIcon iconName={'linkedin'}/>
+            {fredData.contacts.linkedin.icon}
           </a>
 
           <a href={fredData.contacts.github.contactInfo}
             target="_blank"
-            aria-label="Github"
-            title='Github'
+            aria-label="Visit Github page"
+            title="Visit Github page"
           >
-            <PlainSvgIcon iconName={'github'}/>
+            {fredData.contacts.github.icon}
           </a>
         </div>
 

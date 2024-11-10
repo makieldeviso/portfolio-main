@@ -73,7 +73,7 @@ body::before {
 }
 
 /* Header (start) */
-@keyframes fadeIn {
+@keyframes fade-in {
   from {
     filter: opacity(0);
   }
@@ -84,7 +84,7 @@ body::before {
 
 header, footer {
   filter: opacity(0);
-  animation: fadeIn 300ms 500ms ease-in-out forwards;
+  animation: fade-in 300ms 500ms ease-in-out forwards;
 }
 
 header {
@@ -200,7 +200,7 @@ header.scrolled .page-name span.rest {
   padding: var(--padding);
 
   filter: opacity(0);
-  animation: fadeIn 300ms 500ms ease-in-out forwards;
+  animation: fade-in 300ms 500ms ease-in-out forwards;
 }
 
 .banner-cont {

@@ -39,6 +39,10 @@
   filter: opacity(0.8);
 }
 
+.click-instruction.active {
+  animation: fade-in 300ms ease-in-out;
+}
+
 .email.contact svg {
   grid-area: icon;
   width: 32px;
