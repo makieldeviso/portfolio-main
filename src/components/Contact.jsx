@@ -29,7 +29,7 @@ const Contact = function () {
         
         <div className="email contact">
           <p className='email-message'>Get in touch</p>
-          <p ref={instructRef} className="click-instruction">Click to copy</p>
+          <span ref={instructRef} className="click-instruction">Click to copy</span>
           {fredData.contacts.email.icon}
           <p 
             className="email-address"

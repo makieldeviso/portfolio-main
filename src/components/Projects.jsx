@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import projectsArr from "../data/ProjectsData";
 import PlainSvgIcon from "./PlainSvg";
 
-const ProjectLinkButtons = function ({codeLink, liveLink}) {
+const ProjectLinkButtons = function ({title, codeLink, liveLink}) {
   const handleOpenLink = function (event) {
     const linkAddress = event.target.value;
     window.open(linkAddress);  
@@ -13,13 +13,23 @@ const ProjectLinkButtons = function ({codeLink, liveLink}) {
   return (
     <div className='project-btns'>
       {codeLink && 
-        <button onClick={handleOpenLink} value={codeLink} data-action={'code'}>
+        <button 
+          onClick={handleOpenLink} 
+          value={codeLink} 
+          data-action={'code'}
+          aria-label={`${title}, view code`}
+        >
           <PlainSvgIcon iconName={'code'} assignClass={'button-icon'}/>
           View Code
         </button>
         }
       {liveLink && 
-        <button onClick={handleOpenLink} value={liveLink} data-action={'site'}>
+        <button 
+          onClick={handleOpenLink} 
+          value={liveLink} 
+          data-action={'site'}
+          aria-label={`${title}, visit live`}
+        >
           <PlainSvgIcon iconName={'openLink'} assignClass={'button-icon'}/>
           Visit Live
         </button>
@@ -29,6 +39,7 @@ const ProjectLinkButtons = function ({codeLink, liveLink}) {
 }
 
 ProjectLinkButtons.propTypes = {
+  title: PropTypes.string,
   codeLink: PropTypes.string,
   liveLink: PropTypes.string
 }
@@ -81,9 +92,10 @@ const Project = function ({projectData}) {
         <h3 className='title'>{projectData.title}</h3>
         <p className='description'>{projectData.description}</p>
 
-        <ProjectLinkButtons 
-          codeLink= {projectData.codeLink}
-          liveLink= {projectData.liveLink}
+        <ProjectLinkButtons
+          title = {projectData.title}
+          codeLink = {projectData.codeLink}
+          liveLink = {projectData.liveLink}
         />
       </div>
     </li>

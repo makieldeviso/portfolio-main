@@ -114,7 +114,7 @@ const ObjectivesCards= function ({objectives}) {
 
         <div className='card-face back-face'>
           {objective.icon}
-          <h5 className='objective-title'>{objective.title}</h5>
+          <span className='objective-title'>{objective.title}</span>
         </div>
       </div>
     )

@@ -16,6 +16,7 @@
   width: 100%;
   max-width: unset;
   height: 100vh;
+  max-height: var(--max-width);
   display: flex;
   justify-content: center;
   align-items: center;

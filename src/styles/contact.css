@@ -33,6 +33,8 @@
 }
 
 .click-instruction {
+  color: var(--lightest-color);
+  font-family: var(--common-font);
   grid-area: click;
   font-size: 0.9rem;
   justify-self: end;
