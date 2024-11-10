@@ -13,13 +13,15 @@ const ProjectLinkButtons = function ({codeLink, liveLink}) {
   return (
     <div className='project-btns'>
       {codeLink && 
-        <button onClick={handleOpenLink} value={codeLink} data-action={'code'} title='View Code'>
-          <PlainSvgIcon iconName={'github'} assignClass={'button-icon'}/>
+        <button onClick={handleOpenLink} value={codeLink} data-action={'code'}>
+          <PlainSvgIcon iconName={'code'} assignClass={'button-icon'}/>
+          View Code
         </button>
         }
       {liveLink && 
-        <button onClick={handleOpenLink} value={liveLink} data-action={'site'} title='Live View'>
+        <button onClick={handleOpenLink} value={liveLink} data-action={'site'}>
           <PlainSvgIcon iconName={'openLink'} assignClass={'button-icon'}/>
+          Visit Live
         </button>
       }
     </div>

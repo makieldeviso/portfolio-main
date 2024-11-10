@@ -74,7 +74,7 @@
 }
 
 .contact-links a {
-  background-color: var(--base-color);
+  background-color: var(--darker-base-color);
   padding: calc(var(--padding) * 3);  
   padding-top: calc(var(--padding) * 6); 
   display: flex;

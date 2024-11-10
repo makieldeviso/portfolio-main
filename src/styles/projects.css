@@ -59,7 +59,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
   list-style-type: none;
-  gap: calc(var(--margin) * 5);
+  gap: calc(var(--margin) * 3);
   padding: var(--padding);
 }
 
@@ -112,7 +112,7 @@
 }
 
 .project-cont:hover {
-  border: 1px solid rgba(110, 194, 7, 0.4);
+  border: 1px solid var(--comp-color);
   background: linear-gradient(
     rgba(24, 24, 35, 0.1) 5%, 
     rgba(64, 162, 227, 0.1) 80%,
@@ -127,7 +127,12 @@
 }
 
 .project-cont:hover .project-btns button {
-  background-color: var(--darker-base-color);
+  border: 1px solid rgba(64, 162, 227, 0.4);
+  color: var(--base-color);
+}
+
+.project-cont:hover .project-btns button path {
+  fill: var(--base-color);
 }
 
 .project .title {
@@ -153,7 +158,7 @@
   cursor: pointer;
   transform-origin: center center;
   
-  border: 1px solid rgba(110, 194, 7, 0.4);
+  border: 1px solid var(--comp-color);
   box-shadow: 0 0 8px 1px rgba(110, 194, 7, 0.4);
 }
 
@@ -178,16 +183,17 @@
 .project-btns button {
   width: max-content;
   height: max-content;
-  font-size: 1rem;
-  font-family: var(--title-font);
-  background-color: var(--base-color);
-  border: 1px solid transparent;
-  padding: 4px;
-  padding-top: 12px;
+  font-size: 0.8rem;
+  font-family: var(--sub-title-font);
+  background-color: var(--darkest-color);
+  border: 1px solid rgba(255, 247, 233, 0.4);
+  color: var(--lightest-color);
+  padding: var(--padding);
 
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 4px;
   transition: 300ms;
 }
 
@@ -197,14 +203,19 @@
 }
 
 .project-btns button .button-icon path {
-  fill: var(--darkest-color);
+  fill: var(--lightest-color);
   transition: 200ms;
 }
 
 .project-btns button:hover {
   cursor: pointer;
-  background-color: var(--comp-color)!important;
-  transform: translateY(-8px);
+  color: var(--comp-color)!important;
+  border: 1px solid rgba(110, 194, 7, 0.4)!important;
+}
+
+.project-btns button:hover .button-icon,
+.project-btns button:hover .button-icon path {
+  fill: var(--comp-color);
 }
 
 .more-projects-btn {
@@ -215,4 +226,21 @@
   padding: var(--padding) calc(var(--padding) * 2);
   border: 1px solid var(--base-color);
   background-color: transparent;
+}
+
+@media (hover:none) {
+  .project .title {
+    text-decoration-color: var(--comp-color);
+    color: var(--darker-base-color);
+  }
+
+  .project-btns button {
+    border: 1px solid rgba(64, 162, 227, 0.4);
+    color: var(--base-color);
+  }
+
+  .project-btns button .button-icon,
+  .project-btns button .button-icon path {
+    fill: var(--base-color);
+  }
 }
