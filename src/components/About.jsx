@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 import { useRef, useState } from "react"
 import { fredData } from "../data/ProfileData";
 
+// Introduction
 const Introduction = function () {
   return (
     <div className='about-introduction'>
@@ -49,6 +50,7 @@ PageButtons.propTypes = {
   textKeys: PropTypes.array
 }
 
+// Background
 const Background = function () {
   const textRailRef = useRef();
   const backgroundTexts = fredData.background;
@@ -83,10 +85,11 @@ const Background = function () {
   )
 }
 
+// Objectives
 const ObjectivesCards= function ({objectives}) {
   const activeCardRef = useRef(null);
   
-  const Card = function ({objectiveKey}) {
+  const Card = function ({objective}) {
     const cardRef = useRef(null);
     const handleCardFlip = function () {
       if (activeCardRef.current && activeCardRef.current !== cardRef.current) {
@@ -105,25 +108,30 @@ const ObjectivesCards= function ({objectives}) {
     return (
       <div className='objective-card' onClick={handleCardFlip} ref={cardRef}>
         <div className='card-face front-face'>
-          <h5 className='objective-title'>{objectives[objectiveKey].title}</h5>
-          <p className='objective-description'>{objectives[objectiveKey].description}</p>
+          <h5 className='objective-title'>{objective.title}</h5>
+          <p className='objective-description'>{objective.description}</p>
         </div>
 
         <div className='card-face back-face'>
-          <h5 className='objective-title'>{objectives[objectiveKey].title}</h5>
-          {objectives[objectiveKey].icon}
+          <h5 className='objective-title'>{objective.title}</h5>
+          {objective.icon}
         </div>
       </div>
     )
   }
 
   Card.propTypes = {
-    objectiveKey: PropTypes.string
+    objective: PropTypes.shape(
+      {
+        title: PropTypes.string,
+        icon: PropTypes.object,
+        description: PropTypes.string
+      }
+    )
   }
 
-  const objectivesKeys = Object.keys(objectives);
-  const objectivesDisplay = objectivesKeys.map(key => {
-    return <Card key={key} objectiveKey={key}/>
+  const objectivesDisplay = objectives.map(objective => {
+    return <Card key={crypto.randomUUID()} objective={objective}/>
   });
 
   return(
@@ -134,7 +142,7 @@ const ObjectivesCards= function ({objectives}) {
 }
 
 ObjectivesCards.propTypes = {
-  objectives: PropTypes.object
+  objectives: PropTypes.array
 }
 
 const Objectives = function () {
@@ -143,42 +151,27 @@ const Objectives = function () {
   return (
     <div className='about-objectives'>
       <h4>Objectives</h4>
-      
       <div className='objectives-display'>
         <ObjectivesCards objectives={objectives}/>
         <div></div>
         <div></div>
       </div>
-      
-
     </div>
   )
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
+// About
 const About = function () {
   return (
     <section className='banner about' id='About'>
       <h3 className="banner-header">ABOUT</h3>
       <div className="banner-cont">
         <Introduction/>
-        <Objectives/>
         <Background/>
+        <Objectives/>
       </div>
     </section>
   )
-
 }
 
 export default About

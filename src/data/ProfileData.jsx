@@ -20,28 +20,31 @@ fredData.tagline = 'Creates responsive, accessible and efficient websites and we
 fredData.introduction = "I'm Fred Mark Baldeviso, a budding web developer from Leyte, Philippines. I specialize in crafting streamlined digital experiences in the web. And aims to create websites that follows established trends for better user experience while still exuding creativity and style."
 
 
-fredData.objectives = {
-  goal1: {
+fredData.objectives = [
+  {
     title: 'User-centric Design',
     icon: <PlainSvgIcon iconName={'happy'} assignClass={'objective-icon'}/>,
     description: "I'm passionate on improving my sense in design and leaning towards good user experience, responsiveness and accessibility. I consider UX/UI principles in my work to create interesting and intuitive interfaces, essential to successful projects."
-    },
-  goal2:{
+  },
+
+  {
     title: 'Simple and Fast Websites',
     icon: <PlainSvgIcon iconName={'fast'} assignClass={'objective-icon'}/>,
     description: 'Part of my objective is to create optimized and efficient websites. Making simple, fast and performant websites that grant user satisfaction, which is a leading concern for businesses.'
-    },
-  goal3:{
+  },
+
+  {
     title: 'Collaboration',
     icon: <PlainSvgIcon iconName={'connect'} assignClass={'objective-icon'}/>,
     description: "I encourage myself to be a team player and communicate effectively. Even with my average English speaking as a third language, I endeavor to be articulate so that I can achieve goals. Meanwhile, I intend to write readable and maintainable code bases, as well as enhance proficiency with version control systems."
-    },
-  goal4:{
+  },
+  
+  {
     title: 'Long term goals',
     icon: <PlainSvgIcon iconName={'goal'} assignClass={'objective-icon'}/>,
     description: 'My current skills and knowledge is focused in the front-end. My target is to learn back-end technologies and eventually become a Full-stack web developer with a more comprehensive understanding in web development.'
-    }
-}
+  }
+]
 
 fredData.background = {
   p1: `I've always been fascinated by computer technology, applications and video games. I have wondered how to make life of information, create stories and art, then express it to digital users effectively. Such that, I was guided by my ambition and passion to enter the challenging yet lucrative field of tech.`,
