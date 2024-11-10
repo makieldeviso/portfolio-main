@@ -113,8 +113,8 @@ const ObjectivesCards= function ({objectives}) {
         </div>
 
         <div className='card-face back-face'>
-          <h5 className='objective-title'>{objective.title}</h5>
           {objective.icon}
+          <h5 className='objective-title'>{objective.title}</h5>
         </div>
       </div>
     )
