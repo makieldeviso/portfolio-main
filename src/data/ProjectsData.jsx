@@ -54,7 +54,7 @@ const cvApplication = new Project(
   'A Curriculum Vitae maker web app. Create a CV using a template by filling up form input fields.',
   'https://github.com/makieldeviso/CV-Application',
   'https://cv-application-1lb.pages.dev/',
-  'featured'
+  'minor'
 )
 
 const battleship = new Project(
@@ -84,7 +84,7 @@ const todoList = new Project(
   'A Todo List App that can create events with tasks, and projects that can store events. Can track and filter schedule/ deadline of affairs and todo level of priority.',
   'https://github.com/makieldeviso/todo-list',
   'https://makieldeviso.github.io/todo-list/',
-  'featured'
+  'minor'
 )
 
 const restaurantPage = new Project(

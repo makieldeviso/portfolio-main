@@ -61,7 +61,22 @@
   list-style-type: none;
   gap: calc(var(--margin) * 3);
   padding: var(--padding);
+  margin: calc(var(--margin) * 2) 0;
 }
+
+.projects-list.minor {
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: var(--margin);
+}
+
+.projects-list.minor .title {
+  font-size: 1.3rem;
+}
+
+.projects-list.minor .description {
+  font-size: 0.8rem;
+}
+
 
 .project {
   transform: translateX(-100vw);

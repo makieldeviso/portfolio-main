@@ -114,18 +114,40 @@ Project.propTypes = {
 
 const Projects = function () {
 
-  const ProjectsList = projectsArr.map(project => {
-    return (<Project key={project.id} projectData={project}/>)
+  const featuredProjects = [];
+  const minorProjects = [];
+  projectsArr.forEach((project) => {
+    if (project.projectType === 'featured') {
+      featuredProjects.push(project);
+    } else {
+      minorProjects.push(project);
+    }
   });
+
+  const ProjectList = function ({projectsArray, assignClass}) {
+    console.log(projectsArray)
+    const projectsList = projectsArray.map(project => {
+      return (<Project key={project.id} projectData={project}/>)
+    });
+
+    return (
+      <ul className={`projects-list ${assignClass}`}>
+        {projectsList}
+      </ul>
+    )
+  }
+  ProjectList.propTypes = {
+    projectsArray: PropTypes.array,
+    assignClass: PropTypes.string,
+  }
   
   return (
     <section className='banner projects' id='Projects'>
       <h2 className='banner-header'>PROJECTS</h2>
       <div className='banner-cont'>
         <div className='projects-cont'>
-          <ul className='projects-list featured'>
-            {ProjectsList}
-          </ul>
+         <ProjectList projectsArray={featuredProjects} assignClass={'featured'}/>
+         <ProjectList projectsArray={minorProjects} assignClass={'minor'}/>
         </div>
       </div>
     </section>
