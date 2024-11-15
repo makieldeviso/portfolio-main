@@ -70,29 +70,33 @@
 
 .home-picture {
   grid-area: profile-img;
-  filter: opacity(0);
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: var(--padding);
-  /* border: 1px solid var(--base-color); */
 }
 
 .home-picture img {
   object-fit: cover;
-  width: 320px;
-  aspect-ratio: 1 / 1;
-  /* border: 1px solid var(--base-color); */
+  object-position: top center;
+  width: 50%;
+  min-width: 300px;
+  padding-top: var(--margin);
+  aspect-ratio: 3 / 4;
   filter:grayscale(1);
-  transition: 200ms;
-  /* padding: var(--padding); */
+  transition: 300ms;
+  border: 1px solid var(--lightest-color);
   align-self: center;
+  background-color: #969696;
+  background-position: center;
 }
 
 .home-picture img:hover{
   filter: grayscale(0);
-  transform: rotateY(0deg) scale(1.2);
+  transform: scale(1.1);
+  border: 1px solid var(--darker-base-color);
+  background-color: rgba(150, 150, 150, 0.1);
 }
 
 .banner-cont h2.owner-name, 
@@ -106,6 +110,7 @@
 .home-tech {
   grid-area: tech;
   justify-self: start;
+  align-self: end;
   margin: 0;
 }
 

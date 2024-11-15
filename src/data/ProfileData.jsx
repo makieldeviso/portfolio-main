@@ -1,4 +1,4 @@
-import profilePicture1 from '../assets/profile-pictures/profile-1.jpg';
+import profilePicture1 from '../assets/profile-pictures/profile-1.png';
 import PlainSvgIcon from '../components/PlainSvg';
 
 class ProfileData {
