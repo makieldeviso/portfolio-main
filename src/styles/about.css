@@ -1,4 +1,3 @@
-
 .about .banner-cont {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -47,27 +46,29 @@
 
 .objectives-cards {
   width: 100%;
+  padding: var(--padding);
+  perspective: 1000px;
+
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-auto-rows: 1fr;
   gap: calc(var(--margin) * 1);
-  padding: var(--padding);
   align-content: center;
   justify-content: center;
   justify-items: center;
-  perspective: 1000px;
 }
 
 .objective-card {
-  display: grid;
   width: 100%;
   height: 100%;
+  border: 1px solid transparent;
+  position: relative;
+
+  display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   align-items: start;
-  border: 1px solid transparent;
 
-  position: relative;
   transform-style: preserve-3d;
   transform: rotateY(0deg);
   transition: 300ms ease-in-out;
@@ -118,6 +119,7 @@
 
 .back-face {
   backface-visibility: hidden;
+
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: max-content 1fr;
@@ -128,6 +130,7 @@
 
 .front-face {
   backface-visibility: hidden;
+
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr max-content;
@@ -139,19 +142,21 @@
 }
 
 .objective-card svg {
-  fill: var(--base-color);
   width: 80px;
   height: 80px;
-  grid-row: 1 / 2; 
   margin: var(--margin);
+  grid-row: 1 / 2; 
+  
+  fill: var(--base-color);
 }
 
 .objective-title {
-  font-family: var(--sub-title-font);
-  color: var(--base-color);
-  align-self: center;
   width: 100%;
   margin-bottom: var(--margin);
+  align-self: center;
+
+  font-family: var(--sub-title-font);
+  color: var(--base-color);
 }
 
 .back-face .objective-title {
@@ -162,10 +167,11 @@
 .front-face .objective-title {
   font-size: 1.5rem;
   line-height: 150%;
+  margin-bottom: 0;
   min-height: calc((1.5rem * 1.5) * 2);
+
   grid-row: 2 / 3;
   text-align: center;
-  margin-bottom: 0;
   align-self: start;
 }
 
@@ -184,20 +190,20 @@
 .about-background {
   grid-area: bg;
   padding: var(--padding);
+  overflow: hidden;
 
   display: grid;
   grid-template-columns: max-content 1fr;
   grid-template-rows: max-content max-content;
-  overflow: hidden;
 }
 
 .about-background .background-text-cont {
   width: 100%;
   height: 100%;
-  grid-column: 1 / 3;
-  grid-row: 2 / 3;
   overflow: hidden;
   position: relative;
+  grid-column: 1 / 3;
+  grid-row: 2 / 3;
 }
 
 .about-background .background-text-cont .text-rail {
@@ -206,6 +212,7 @@
   display: grid;
   grid-template-columns: repeat(4, 100%);
   grid-template-rows: 1fr;
+  
   transition: 300ms ease-in-out;
 }
 
