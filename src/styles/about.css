@@ -78,7 +78,7 @@
 .objective-card:hover {
   cursor: pointer;
   border: 1px solid var(--comp-color);
-  box-shadow: 0 0 8px 1px rgba(110, 194, 7, 0.4);
+  background-color: rgba(64, 162, 227, 0.1);
 }
 
 @keyframes flip-back {
@@ -114,7 +114,6 @@
     rgba(64, 162, 227, 0.1) 80%,
     rgba(24, 24, 35, 0.1)
   ); 
-  background-color: var(--darkest-color);
 }
 
 .back-face {
@@ -212,7 +211,7 @@
   display: grid;
   grid-template-columns: repeat(4, 100%);
   grid-template-rows: 1fr;
-  
+
   transition: 300ms ease-in-out;
 }
 
