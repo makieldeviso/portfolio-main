@@ -12,12 +12,29 @@ const fredData = new ProfileData('Fred Mark', 'Baldeviso');
 fredData.profilePictures = [profilePicture1];
 fredData.title = 'Front-end Web Developer';
 fredData.techStack = {
-  frontEnd: ['HTML', 'CSS', 'JavaScript', 'React']
+  frontEnd: [
+    {
+      title: 'HTML',
+      icon: <PlainSvgIcon iconName={'html'} assignClass={'tech-icon'}/>
+    },
+    {
+      title: 'CSS',
+      icon: <PlainSvgIcon iconName={'css'} assignClass={'tech-icon'}/>
+    },
+    {
+      title: 'JavaScript',
+      icon: <PlainSvgIcon iconName={'javaScript'} assignClass={'tech-icon'}/>
+    },
+    {
+      title: 'React',
+      icon: <PlainSvgIcon iconName={'react'} assignClass={'tech-icon'}/> 
+    }
+  ] 
 };
 
 fredData.tagline = 'Creates responsive, accessible and efficient websites and web applications. Focuses in building interactive and dynamic apps with JavaScript and React.';
 
-fredData.introduction = "I'm Fred Mark Baldeviso, a budding web developer from Leyte, Philippines. I specialize in crafting streamlined digital experiences in the web. And aims to create websites that follows established trends for better user experience while still exuding creativity and style."
+fredData.introduction = "I'm Fred Mark Baldeviso, a web developer from Leyte, Philippines. I specialize in crafting streamlined digital experiences in the web. And aims to create websites that follows established trends for better user experience while still exuding creativity and style."
 
 
 fredData.objectives = [
@@ -60,7 +77,7 @@ fredData.background = {
 
   p2: `I learned how to code by freely browsing through the web for materials, which eventually lead to me to freeCodeCamp, Harvard CS50, and The Odin Project. I've completed web dev courses on freeCodeCamp while primary following The Odin Project course, making projects to gain web development skills and fill up my repositories to show my experience.`,
   
-  p3: `I am career shifter. Going back, I have 3+ years experience working as a Civil Engineer in a Government Agency, monitoring physical and financial accomplishments and completion of (100+) various public infrastructures projects costing more than PHP100,000,000 (1.8 million USD). Wherein, I have adapted to crunch numbers and absorb a lot of data, processing it efficiently and translating it to reports.`,
+  p3: `I am a career shifter. Going back, I have 3+ years experience working as a Civil Engineer in a Government Agency, monitoring physical and financial accomplishments and completion of (100+) various public infrastructures projects costing more than PHP100,000,000 (1.8 million USD). Wherein, I have adapted to crunch numbers and absorb a lot of data, processing it efficiently and translating it to reports.`,
   
   p4: `In times of respite from problem solving, I cook up some fire fried rice paired with black coffee, then get hyped by Japanese rock music.`
 }

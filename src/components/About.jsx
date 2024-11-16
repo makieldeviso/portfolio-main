@@ -108,13 +108,13 @@ const ObjectivesCards= function ({objectives}) {
     return (
       <div className='objective-card' onClick={handleCardFlip} ref={cardRef}>
         <div className='card-face front-face'>
+          {objective.icon}
           <h5 className='objective-title'>{objective.title}</h5>
-          <p className='objective-description'>{objective.description}</p>
         </div>
 
         <div className='card-face back-face'>
-          {objective.icon}
           <span className='objective-title'>{objective.title}</span>
+          <p className='objective-description'>{objective.description}</p>
         </div>
       </div>
     )

@@ -1,23 +1,22 @@
 import PropTypes from 'prop-types';
 
 import { fredData } from '../data/ProfileData'
-import { TechIcon } from "./Assets";
 
 const Tech = function ({techStackData}) {
   const techTypeKeys = Object.keys(techStackData);
   
   const TechList = function ({techType, techList}) {
-    const TechItems = techList.map((techName, index) => {
-      const delay = `${500 + (100 * (index + 1))}ms`;
+    const TechItems = techList.map((techObject, index) => {
+      const delay = `${800 + (100 * (index + 1))}ms`;
       return (
-        <li key={techName} style={{animationDelay: delay}}>
+        <li key={techObject} style={{animationDelay: delay}}>
           <div className='tech-icon-cont'>
-            <TechIcon iconName={techName}/>
-            <p>{techName}</p>
+            {techObject.icon}
+            <p>{techObject.title}</p>
           </div>
         </li>
       )
-    })
+    });
 
     return (
       <ul className={`tech-list ${techType}`}>
@@ -27,7 +26,10 @@ const Tech = function ({techStackData}) {
   }
 
   TechList.propTypes = {
-    techType: PropTypes.string,
+    techType: PropTypes.shape({
+      title: PropTypes.string,
+      icon: PropTypes.object
+    }),
     techList: PropTypes.array
   }
 
@@ -39,7 +41,7 @@ const Tech = function ({techStackData}) {
         techList={techList}
       />
     )
-  })
+  });
 
   return (
     <div className="home-tech">
@@ -67,6 +69,7 @@ const Home = function () {
         </div>
 
         <div className='home-picture'>
+          <div className='picture-background'></div>
           <img src={fredData.profilePictures[0]} alt="Fred Mark Baldeviso profile" />
         </div>
 

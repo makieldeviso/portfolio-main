@@ -20,6 +20,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: rgba(64, 162, 227, 0.1);
 }
 
 .home.banner .banner-cont {
@@ -31,7 +32,6 @@
   justify-items: center;
   justify-content: center;
   margin: auto;
-
   grid-template-areas: 
     "profile-text profile-img"
     "tech profile-img";
@@ -74,29 +74,40 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: var(--padding);
+  position: relative;
 }
 
 .home-picture img {
   object-fit: cover;
   object-position: top center;
   width: 50%;
-  min-width: 300px;
-  padding-top: var(--margin);
+  min-width: 350px;
   aspect-ratio: 3 / 4;
-  filter:grayscale(1);
   transition: 300ms;
-  border: 1px solid var(--lightest-color);
   align-self: center;
-  background-color: rgba(150, 150, 150, 0.3);
   background-position: center;
+  position: relative;
+  filter: grayscale(1);
+}
+
+.picture-background {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 50%;
+  height: 80%;
+  margin: auto;
+  background-color: var(--darkest-color);
+  /* background: url('../assets/bg-2.png'); */
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .home-picture img:hover{
   filter: grayscale(0);
-  transform: scale(1.1);
-  border: 1px solid var(--darker-base-color);
-  background-color: rgba(150, 150, 150, 0.1);
 }
 
 .banner-cont h2.owner-name, 
@@ -110,7 +121,6 @@
 .home-tech {
   grid-area: tech;
   justify-self: start;
-  align-self: end;
   margin: 0;
 }
 
@@ -144,7 +154,7 @@
   gap: 5px;
 }
 
-.tech-icon-cont img {
+.tech-icon-cont svg {
   width: 30px;
   height: 30px;
 }

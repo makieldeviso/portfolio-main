@@ -1,7 +1,6 @@
 import { useRef } from "react";
 
 import { fredData } from "../data/ProfileData";
-import PlainSvgIcon from "./PlainSvg";
 
 const Contact = function () {
   const instructRef = useRef(null);
@@ -26,7 +25,6 @@ const Contact = function () {
     <section className="banner contact" id='Contact'>
       <h3 className="banner-header">CONTACT</h3>
       <div className="banner-cont">
-        
         <div className="email contact">
           <p className='email-message'>Get in touch</p>
           <span ref={instructRef} className="click-instruction">Click to copy</span>
@@ -56,7 +54,6 @@ const Contact = function () {
             {fredData.contacts.github.icon}
           </a>
         </div>
-
       </div>
     
     </section>

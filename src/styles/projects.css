@@ -79,19 +79,19 @@
 
 
 .project {
-  transform: translateX(-100vw);
-  opacity: 0;
+  filter: opacity(0);
   box-shadow: 0 0 8px 1px var(--darkest-color);
 }
 
 @keyframes show-project {
   from {
-    transform: translateX(-100vw);
-    opacity: 0;
+    transform: translateY(100vw);
+    filter: opacity(0);
+    
   }
   to {
-    transform: translateX(0);
-    opacity: 1;
+    transform: translateY(0);
+    filter: opacity(1);
   }
 }
 
