@@ -125,7 +125,7 @@ const Projects = function () {
   });
 
   const ProjectList = function ({projectsArray, assignClass}) {
-    console.log(projectsArray)
+  
     const projectsList = projectsArray.map(project => {
       return (<Project key={project.id} projectData={project}/>)
     });

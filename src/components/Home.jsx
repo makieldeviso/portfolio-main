@@ -6,10 +6,12 @@ const Tech = function ({techStackData}) {
   const techTypeKeys = Object.keys(techStackData);
   
   const TechList = function ({techType, techList}) {
+    
     const TechItems = techList.map((techObject, index) => {
       const delay = `${800 + (100 * (index + 1))}ms`;
+      
       return (
-        <li key={techObject} style={{animationDelay: delay}}>
+        <li key={techObject.title} style={{animationDelay: delay}}>
           <div className='tech-icon-cont'>
             {techObject.icon}
             <p>{techObject.title}</p>
@@ -26,10 +28,7 @@ const Tech = function ({techStackData}) {
   }
 
   TechList.propTypes = {
-    techType: PropTypes.shape({
-      title: PropTypes.string,
-      icon: PropTypes.object
-    }),
+    techType: PropTypes.string,
     techList: PropTypes.array
   }
 
