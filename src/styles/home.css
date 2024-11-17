@@ -44,7 +44,7 @@
 }
 
 .banner-cont .owner-name {
-  font-size: 5rem;
+  font-size: var(--hero-text-font-size);
   line-height: 100%;
   margin-bottom: calc(var(--margin) * 0.5);
   color: var(--darker-base-color);
@@ -56,7 +56,7 @@
 }
 
 .banner-cont .owner-title {
-  font-size: 2rem;
+  font-size: var(--large-font-size);
   line-height: 100%;
   font-family: var(--sub-title-font);
   color: var(--base-color);
@@ -64,7 +64,7 @@
 }
 
 .home-text p {
-  font-size: 1.2rem;
+  font-size: var(--medium-font-size);
   line-height: 150%;
 }
 
@@ -159,7 +159,7 @@
 }
 
 .tech-icon-cont p {
-  font-size: 0.8rem;
+  font-size: var(--small-font-size);
 }
 
 /* Home banner (end)*/

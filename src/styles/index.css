@@ -13,10 +13,7 @@
   --margin: 24px;
   --banner-margin: calc(var(--margin) * 5);
   --max-width: 1280px;
-  --title-font: "Oswald", sans-serif;
-  --sub-title-font: "Lato", sans-serif;
-  --common-font: "Open Sans", sans-serif;
-
+ 
   --base-color: #BBE2EC;
   --darker-base-color: #40A2E3;
   --lightest-color: #FFF7E9;
@@ -24,6 +21,20 @@
   --darkest-color: #181823;
 
   --white-glow: rgba(255, 247, 233, 0.3);
+
+  --title-font: "Oswald", sans-serif;
+  --sub-title-font: "Lato", sans-serif;
+  --common-font: "Open Sans", sans-serif;
+
+  
+  --hero-text-font-size: 5rem;
+  --header-font-size: 3.5rem;
+  --sub-header-font-size: 1.5rem;
+
+  --small-font-size: 0.8rem;
+  --common-font-size: 1rem;
+  --medium-font-size: 1.2rem;
+  --large-font-size: 2rem;
 }
 
 h1, h2, h3 {

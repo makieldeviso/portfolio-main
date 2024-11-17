@@ -27,8 +27,8 @@
 
 .email-message {
   grid-area: message;
-  font-size: 2rem;
-  line-height: 2rem;
+  font-size: var(--sub-header-font-size);
+  line-height: 100%;
   font-family: var(--sub-title-font);
 }
 
@@ -36,7 +36,7 @@
   color: var(--lightest-color);
   font-family: var(--common-font);
   grid-area: click;
-  font-size: 0.9rem;
+  font-size: var(--small-font-size);
   justify-self: end;
   filter: opacity(0.8);
 }
@@ -54,8 +54,8 @@
 
 .email-address {
   grid-area: address;
-  font-size: 2.5rem;
-  line-height: 2.5rem;
+  font-size: var(--large-font-size);
+  line-height: 100%;
   text-decoration: underline;
   text-decoration-color: transparent;
   text-decoration-thickness: 1px;

@@ -70,11 +70,11 @@
 }
 
 .projects-list.minor .title {
-  font-size: 1.3rem;
+  font-size: calc(var(--sub-header-font-size) - 0.2rem);
 }
 
 .projects-list.minor .description {
-  font-size: 0.8rem;
+  font-size: calc(var(--common-font-size) - 0.2rem);
 }
 
 
@@ -152,7 +152,7 @@
 
 .project .title {
   grid-area: title;
-  font-size: 1.5rem;
+  font-size: var(--sub-header-font-size);
   font-family: var(--sub-title-font);
   color: var(--base-color);
   text-decoration: underline;
@@ -219,7 +219,7 @@
 .project-btns button {
   width: max-content;
   height: max-content;
-  font-size: 0.8rem;
+  font-size: var(--small-font-size);
   font-family: var(--sub-title-font);
   background-color: var(--darkest-color);
   border: 1px solid rgba(255, 247, 233, 0.4);
@@ -256,7 +256,7 @@
 
 .more-projects-btn {
   justify-self: end;
-  font-size: 1rem;
+  font-size: var(--common-font-size);
   font-family: var(--title-font);
   color: var(--base-color);
   padding: var(--padding) calc(var(--padding) * 2);

@@ -1,0 +1,35 @@
+@media only screen and (max-width: 428px) {
+  /* Header */
+  .header-links a {
+    font-size: 1.7rem;
+  }
+
+  /* Home  (start)*/
+  .home.banner .banner-cont {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "profile-img"
+        "profile-text "
+        "tech";
+  }
+
+  .home-picture {
+    margin-bottom: var(--margin);
+  }
+
+  .home-picture img {
+    min-width: 200px;
+  }
+
+  .banner-cont .owner-name {
+    font-size: 4.7rem;
+  }
+
+  .banner-cont .owner-title {
+    
+  }
+
+
+   /* Home  (end)*/
+
+}
