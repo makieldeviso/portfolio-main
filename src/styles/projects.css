@@ -69,13 +69,13 @@
   gap: var(--margin);
 }
 
-.projects-list.minor .title {
+/* .projects-list.minor .title {
   font-size: calc(var(--sub-header-font-size) - 0.2rem);
 }
 
 .projects-list.minor .description {
   font-size: calc(var(--common-font-size) - 0.2rem);
-}
+} */
 
 
 .project {
@@ -234,8 +234,8 @@
 }
 
 .project-btns button .button-icon {
-  width: 24px;
-  height: 24px;
+  width: var(--small-icon-size);
+  height: var(--small-icon-size);
 }
 
 .project-btns button .button-icon path {

@@ -1,9 +1,25 @@
 @media only screen and (max-width: 428px) {
-  /* Header */
-  .header-links a {
-    font-size: 1.7rem;
+  :root {
+    --padding: 4px;
+    --margin: 12px;
+
+    --hero-text-font-size: calc(5rem - 0.2rem);
+    --header-font-size: calc(3.5rem - 0.2rem);
+    --sub-header-font-size: calc(1.5rem - 0.2rem);
+  
+    --small-font-size: calc(0.8rem - 0.2rem);
+    --common-font-size: calc(1rem - 0.2rem);
+    --medium-font-size: calc(1.2rem - 0.2rem);
+    --large-font-size: calc(2rem - 0.2rem);
   }
 
+
+  /* Header */
+  header{
+    width: 100vw;
+    overflow: hidden;
+  }
+  
   /* Home  (start)*/
   .home.banner .banner-cont {
     grid-template-columns: 1fr;
@@ -21,15 +37,63 @@
     min-width: 200px;
   }
 
-  .banner-cont .owner-name {
-    font-size: 4.7rem;
-  }
-
-  .banner-cont .owner-title {
-    
-  }
-
-
    /* Home  (end)*/
 
+
+  /* About (start)*/
+  .about .banner-cont {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "intro"
+        "bg"
+        "obj";
+  }
+
+  .objectives-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+
+  /* Projects (start) */
+  .projects-list {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
+
+  .projects-list.minor {
+    gap: calc(var(--margin) * 3);
+  }
+
+  /* Contact (start) */
+  .contact .banner-cont {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: max-content 1fr;
+    gap: calc(var(--margin) * 2);
+  }
+
+  .contact .banner-header {
+    margin-bottom: calc(var(--margin) * 2);
+  }
+
+  .email.contact svg {
+    align-self: start;
+  }
+
+  .email-address {
+    padding-bottom: var(--padding);
+    width: 100%;
+    line-height: unset;
+    text-wrap: wrap;
+    overflow-y: hidden;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    inline-size: 17ch;
+    text-align: end;
+    justify-self: end;
+  }
+
+  .contact-links {
+    justify-items: flex-end;
+    padding: var(--padding);
+  }
 }

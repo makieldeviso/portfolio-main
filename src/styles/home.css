@@ -154,8 +154,8 @@
 }
 
 .tech-icon-cont svg {
-  width: 30px;
-  height: 30px;
+  width: var(--small-icon-size);
+  height: var(--small-icon-size);
 }
 
 .tech-icon-cont p {

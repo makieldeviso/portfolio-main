@@ -5,7 +5,7 @@ import { fredData } from "../data/ProfileData";
 // Introduction
 const Introduction = function () {
   return (
-    <div className='about-introduction'>
+    <div className='about-content introduction'>
       <h4>Introduction</h4>
       <p>{fredData.introduction}</p>
     </div>
@@ -69,7 +69,7 @@ const Background = function () {
   }
   
   return (
-    <div className={'about-background'}>
+    <div className={'about-content background'}>
       <h4>Background</h4>
       <PageButtons 
         handleChangeText={handleChangeText}

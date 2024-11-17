@@ -35,6 +35,10 @@
   --common-font-size: 1rem;
   --medium-font-size: 1.2rem;
   --large-font-size: 2rem;
+
+  --small-icon-size: 24px;
+  --medium-icon-size: 48px;
+  --large-icon-size: 80px;
 }
 
 h1, h2, h3 {
@@ -101,6 +105,8 @@ header, footer {
 header {
   width: 100%;
   position: fixed;
+  top: 0;
+  left: 0;
   z-index: 3;
   transition: background-color 200ms ease-in-out;
   border-bottom: 1px solid transparent;
@@ -140,12 +146,12 @@ header.scrolled {
 
 .page-icon{
   background-color: var(--base-color);
-  width: 35px;
-  height: 35px;
+  width: var(--large-font-size);
+  height: var(--large-font-size);
 }
 
 .page-name {
-  font-size: 2.5rem;
+  font-size: var(--large-font-size);
   font-family: var(--title-font);
   display: flex;
   justify-content: start;
@@ -182,12 +188,12 @@ header.scrolled .page-name span.rest {
 
 .header-links a {
   font-family: var(--title-font);
+  font-size: var(--large-font-size);
   color: var(--base-color);
   text-decoration: underline;
   text-decoration-color: transparent;
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
-  font-size: 2rem;
   transition: 200ms ease-in-out;
 }
 
@@ -244,11 +250,11 @@ footer {
 
 .footer-cont p {
   display: flex;
-  align-items: end;
+  align-items: center;
   justify-content: flex-start;
   padding: var(--padding);
   text-wrap: nowrap;
-  font-size: 1rem;
+  font-size: var(--common-font-size);
   color: var(--lightest-color);
 }
 
@@ -257,8 +263,8 @@ footer {
 }
 
 .copyright {
-  width: 24px;
-  height: 24px;
+  width: var(--small-icon-size);
+  height: var(--small-icon-size);
   margin-right: 4px;
   fill: var(--lightest-color);
   align-self: flex-end;
