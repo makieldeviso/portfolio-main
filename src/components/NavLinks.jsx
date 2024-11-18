@@ -22,7 +22,6 @@ const MenuPanel = function ({headerRef}) {
   const header = headerRef.current;
   
   const handleOpenMenuPanel = function () {
-    console.log(header);
     header.classList.toggle('open');
   }
 

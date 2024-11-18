@@ -7,21 +7,23 @@ const TABLET_SCREEN = 1024;
 
 const Header = function () {
   const headerRef = useRef(null);
+  const scrolledRef = useRef('');
   const [screenSizeType, setScreenSizeType] = useState('wide');
-  
+
   useEffect(() => {
     const handleScrollStyling = function () {
       const {scrollY} = window;
       if (scrollY > 0) {
         headerRef.current.classList.add('scrolled');
+        scrolledRef.current = 'scrolled';
       } else {
         headerRef.current.classList.remove('scrolled');
+        scrolledRef.current = '';
       }
     }
 
     window.addEventListener('scroll', handleScrollStyling);
     window.addEventListener('load', handleScrollStyling);
-
 
     return () => {
       window.removeEventListener('scroll', handleScrollStyling);
@@ -30,16 +32,15 @@ const Header = function () {
   },[])
 
   useEffect(() => {
-    
     const handleScreenSizeType = function () {
       const {width} = screen;
       
       if (width <= SMALL_SCREEN) {
         setScreenSizeType('small');
-
+  
       } else if (width <= TABLET_SCREEN && width >= SMALL_SCREEN) {
         setScreenSizeType('tablet');
-
+  
       } else {
         setScreenSizeType('wide');
       } 
@@ -53,14 +54,14 @@ const Header = function () {
       window.removeEventListener('resize', handleScreenSizeType);
     }
 
-  }, [screenSizeType]);
+  }, []);
 
   const scrollToHome = function () {
     window.location.href= '#Home';
   }
 
   return (
-    <header ref={headerRef} className={screenSizeType}>
+    <header ref={headerRef} className={`${scrolledRef.current} ${screenSizeType}`}>
       <div className={'header-cont'}>
         <div className="page-logo" onClick={scrollToHome}>
           <div className='page-icon'></div>
