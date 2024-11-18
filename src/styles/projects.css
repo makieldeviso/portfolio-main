@@ -221,7 +221,7 @@
   position: relative;
 }
 
-.project-btns:hover button:after {
+.project-cont button:after {
   content: '';
   position: absolute;
   top: 0;
@@ -230,8 +230,12 @@
   height: 100%;
   background: var(--radiant-gradient);
   background-size: 200%;
-  background-position: center;
+  background-position: left;
   transition: 500ms ease-in-out;
+}
+
+.project-cont:hover button:after {
+  background-position: center;
 }
 
 .project-btns:hover button:hover:after {
