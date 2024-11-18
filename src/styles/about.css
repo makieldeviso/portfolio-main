@@ -81,24 +81,6 @@
   background-color: rgba(64, 162, 227, 0.1);
 }
 
-@keyframes flip-back {
-  from {
-    transform: rotateY(180deg);
-  }
-  to {
-    transform: rotateY(360deg);
-  }
-}
-
-@keyframes flip-front {
-  from {
-    transform: rotateY(0deg);
-  }
-  to {
-    transform: rotateY(180deg);
-  }
-}
-
 .objective-card.active{
   animation: flip-front 300ms ease-in-out 1 forwards;
 }

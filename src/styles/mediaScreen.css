@@ -1,4 +1,4 @@
-@media only screen and (max-width: 428px) {
+@media only screen and (max-width: 425px) {
   :root {
     --padding: 4px;
     --margin: 12px;
@@ -15,10 +15,7 @@
 
 
   /* Header */
-  header{
-    width: 100vw;
-    overflow: hidden;
-  }
+
   
   /* Home  (start)*/
   .home.banner .banner-cont {
@@ -87,9 +84,16 @@
     overflow-y: hidden;
     overflow-wrap: break-word;
     word-wrap: break-word;
-    inline-size: 17ch;
+    inline-size: clamp(16ch, 1ch, 17ch);
     text-align: end;
     justify-self: end;
+  }
+
+  .email-address:hover {
+    text-decoration: underline;
+    text-decoration-color: var(--comp-color);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 8px;
   }
 
   .contact-links {

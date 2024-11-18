@@ -69,15 +69,6 @@
   gap: var(--margin);
 }
 
-/* .projects-list.minor .title {
-  font-size: calc(var(--sub-header-font-size) - 0.2rem);
-}
-
-.projects-list.minor .description {
-  font-size: calc(var(--common-font-size) - 0.2rem);
-} */
-
-
 .project {
   filter: opacity(0);
   box-shadow: 0 0 8px 1px var(--darkest-color);
