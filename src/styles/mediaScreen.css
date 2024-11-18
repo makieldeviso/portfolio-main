@@ -7,12 +7,11 @@
     --header-font-size: calc(3.5rem - 0.2rem);
     --sub-header-font-size: calc(1.5rem - 0.2rem);
   
-    --small-font-size: calc(0.8rem - 0.2rem);
+    --small-font-size: calc(0.8rem);
     --common-font-size: calc(1rem - 0.2rem);
     --medium-font-size: calc(1.2rem - 0.2rem);
     --large-font-size: calc(2rem - 0.2rem);
   }
-
 
   /* Header */
 
@@ -33,9 +32,7 @@
   .home-picture img {
     min-width: 200px;
   }
-
    /* Home  (end)*/
-
 
   /* About (start)*/
   .about .banner-cont {
@@ -47,9 +44,8 @@
   }
 
   .objectives-cards {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
-
 
   /* Projects (start) */
   .projects-list {
