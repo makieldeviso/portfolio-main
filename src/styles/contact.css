@@ -95,29 +95,58 @@
   justify-content: end;
   align-items: center;
   gap: calc(var(--margin) * 2);
+  perspective: 1000px;
 }
 
 .contact-links a {
-  background-color: var(--darker-base-color);
+  background: var(--smoked-gradient);
+  border: 1px solid var(--white-glow);
+  box-shadow: 0 4px 4px 1px var(--darkest-color);
   padding: calc(var(--padding) * 3);  
   padding-top: calc(var(--padding) * 6); 
   display: flex;
   justify-content: center;
   align-items: end;
   transition:  200ms ease-in-out;
+  position: relative;
+}
+
+.contact-links a:after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  background: var(--radiant-gradient);
+  background-position: center;
+  background-size: 200%;
+  transition: 500ms ease-in-out;
+  transform-origin: top center;
 }
 
 .contact-links a:hover {
-  background-color: var(--comp-color);
-  transform: translateY(-16px);
+  border: 1px solid var(--comp-color);
+  background-color: var(--darker-base-translucent);
+  transform: rotateX(8deg);
+}
+
+.contact-links a:hover:after {
+  background-position: right;
 }
 
 .contact-links svg {
   width: var(--medium-icon-size);
   height: var(--medium-icon-size);
+  transition: 500ms ease-in-out;
 }
 
 .contact-links svg, .contact-links svg path {
-  fill: var(--darkest-color);
+  fill: var(--darker-base-color);
+}
+
+.contact-links a:hover svg,
+.contact-links a:hover svg path {
+  fill: var(--comp-color);
 }
 /* Contact banner (end) */

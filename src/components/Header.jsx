@@ -61,7 +61,7 @@ const Header = function () {
   }
 
   return (
-    <header ref={headerRef} className={`${scrolledRef.current} ${screenSizeType}`}>
+    <header ref={headerRef} className={`${screenSizeType} ${scrolledRef.current}`}>
       <div className={'header-cont'}>
         <div className="page-logo" onClick={scrollToHome}>
           <div className='page-icon'></div>

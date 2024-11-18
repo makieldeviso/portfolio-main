@@ -17,15 +17,29 @@
   --base-color: #BBE2EC;
   --darker-base-color: #40A2E3;
   --lightest-color: #FFF7E9;
-  --comp-color: #6EC207;
+  --comp-color: #FF9D3D;
   --darkest-color: #181823;
 
-  --white-glow: rgba(255, 247, 233, 0.3);
+  --white-glow: rgba(255, 247, 233, 0.5);
+  --comp-glow: rgba(255, 157, 61, 0.3);
+  --darker-base-glow: rgba(64, 162, 227, 0.4);
+  --darker-base-translucent: rgba(64, 162, 227, 0.1);
+  --darkest-translucent: rgba(24, 24, 35, 0.8);
+  --smoked-gradient: linear-gradient(
+    rgba(24, 24, 35, 0.1) 5%,
+    rgba(64, 162, 227, 0.1) 80%,
+    rgba(24, 24, 35, 0.1)
+  ); 
+
+  --radiant-gradient: linear-gradient(
+    0.15turn,
+    transparent 60%,
+    rgba(187, 226, 236, 0.2) 90%
+  );
 
   --title-font: "Oswald", sans-serif;
   --sub-title-font: "Lato", sans-serif;
   --common-font: "Open Sans", sans-serif;
-
   
   --hero-text-font-size: 5rem;
   --header-font-size: 3.5rem;
