@@ -61,7 +61,7 @@ const battleship = new Project(
   4,
   'Battleship',
   battleshipPreview,
-  'A battleship game that runs on the browser',
+  'A battleship game that runs on the browser. Implements test driven development with jest.',
   'https://github.com/makieldeviso/battleship',
   'https://makieldeviso.github.io/battleship/',
   'featured'
@@ -131,7 +131,7 @@ const signUpForm = new Project (
   11,
   'Sign-up Form',
   signUpFormPreview,
-  'A service sign up for Waryur Helmets, a made up shop that sells biker helmets.',
+  'A service sign up with scripted custom form validations for Waryur Helmets, a made up shop that sells biker helmets.',
   'https://github.com/makieldeviso/sign-up-form',
   'https://makieldeviso.github.io/sign-up-form/',
   'minor'
