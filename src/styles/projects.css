@@ -55,6 +55,13 @@
   gap: var(--margin);
 }
 
+.projects-cont {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  overflow: hidden;
+}
+
 .projects-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
@@ -70,28 +77,7 @@
 }
 
 .project {
-  filter: opacity(0);
   box-shadow: 0 0 8px 1px var(--darkest-color);
-}
-
-@keyframes show-project {
-  from {
-    transform: translateY(100vw);
-    filter: opacity(0);
-    
-  }
-  to {
-    transform: translateY(0);
-    filter: opacity(1);
-  }
-}
-
-.project.shown {
-  animation: show-project 500ms ease-in-out forwards;
-}
-
-.project.shown:nth-last-of-type(2n) {
-  animation-delay: 200ms;
 }
 
 .project-cont {

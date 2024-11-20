@@ -16,6 +16,8 @@
   width: 100%;
   max-width: unset;
   height: 100vh;
+  padding-top: 5vh;
+  min-height: max-content;
   max-height: var(--max-width);
   display: flex;
   justify-content: center;
@@ -81,7 +83,7 @@
   object-fit: cover;
   object-position: top center;
   width: 50%;
-  min-width: 350px;
+  min-width: 300px;
   aspect-ratio: 3 / 4;
   transition: 300ms;
   align-self: center;

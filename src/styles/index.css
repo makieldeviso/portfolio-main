@@ -13,6 +13,7 @@
   --margin: 24px;
   --banner-margin: calc(var(--margin) * 5);
   --max-width: 1280px;
+  --min-width: 320px;
  
   --base-color: #BBE2EC;
   --darker-base-color: #40A2E3;
@@ -74,6 +75,7 @@ p {
 
 body {
   background-color: var(--darkest-color);
+  min-width: var(--min-width);
 }
 
 @keyframes flip-back {
@@ -144,5 +146,9 @@ header, footer {
   line-height: 150%;
   color: var(--darker-base-color);
   margin-bottom: calc(var(--margin) * 2);
+}
+
+.perspective-box {
+  perspective: 1000px;
 }
 /* Main Common (end) */

@@ -106,15 +106,17 @@ const ObjectivesCards= function ({objectives}) {
     }
 
     return (
-      <div className='objective-card' onClick={handleCardFlip} ref={cardRef}>
-        <div className='card-face front-face'>
-          {objective.icon}
-          <h5 className='objective-title'>{objective.title}</h5>
-        </div>
+      <div className='perspective-box'>
+        <div className='objective-card' onClick={handleCardFlip} ref={cardRef}>
+          <div className='card-face front-face'>
+            {objective.icon}
+            <h5 className='objective-title'>{objective.title}</h5>
+          </div>
 
-        <div className='card-face back-face'>
-          <span className='objective-title'>{objective.title}</span>
-          <p className='objective-description'>{objective.description}</p>
+          <div className='card-face back-face'>
+            <span className='objective-title'>{objective.title}</span>
+            <p className='objective-description'>{objective.description}</p>
+          </div>
         </div>
       </div>
     )
@@ -153,8 +155,6 @@ const Objectives = function () {
       <h4>Objectives</h4>
       <div className='objectives-display'>
         <ObjectivesCards objectives={objectives}/>
-        <div></div>
-        <div></div>
       </div>
     </div>
   )
@@ -166,8 +166,10 @@ const About = function () {
     <section className='banner about' id='About'>
       <h3 className="banner-header">ABOUT</h3>
       <div className="banner-cont">
-        <Introduction/>
-        <Background/>
+        <div className='about-text-only'>
+          <Introduction/>
+          <Background/>
+        </div>
         <Objectives/>
       </div>
     </section>

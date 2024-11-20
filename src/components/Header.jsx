@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react"
 
 import { NavLinks, MenuPanel } from "./NavLinks";
 
-const SMALL_SCREEN = 425;
+const SMALL_SCREEN = 768;
 const TABLET_SCREEN = 1024;
 
 const Header = function () {

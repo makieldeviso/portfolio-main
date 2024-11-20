@@ -59,17 +59,16 @@ const Home = function () {
   return (
     <section className='banner home' id='Home'>
       <div className="banner-cont">
+        <div className='home-picture'>
+          <div className='picture-background'></div>
+          <img src={fredData.profilePictures[0]} alt="Fred Mark Baldeviso profile" />
+        </div>
         <div className='home-text'>
           <h1 className='owner-name'>
             {fredData.firstName.toUpperCase()}
           </h1>
           <h2 className='owner-title'>{fredData.title}</h2>
           <p>{fredData.tagline}</p>
-        </div>
-
-        <div className='home-picture'>
-          <div className='picture-background'></div>
-          <img src={fredData.profilePictures[0]} alt="Fred Mark Baldeviso profile" />
         </div>
 
         <Tech techStackData={fredData.techStack}/>
